@@ -68,6 +68,7 @@ module fifo_write_logic_fixture;
   end
   
   initial
-    $monitor("Time %3d, clk = %b rst = %b, cs = %d, ns = %d, rinc = %d, raddr = %d rq2_waddr = %d, rempty = %d, rempty_tmp = %d, read_en = %d, raddr = %d, r_tmp = %d, rgray = %d", $time, clk1, rst, frl.current_state, frl.next_state, frl.rinc, waddr, frl.rq2_waddr, frl.rempty, frl.rempty_tmp, frl.read_en, frl.raddr, frl.raddr_tmp, frl.raddr_gray);
+    $monitor("Time %3d, clk = %b rst = %b, rinc = %d, waddr = %d rq2_waddr = %d, rempty = %d, read_en = %d, raddr = %d, rgray = %d", $time, clk1, rst, frl.rinc, waddr, frl.rq2_waddr, frl.rempty, frl.read_en, frl.raddr, frl.raddr_gray);
+    //$monitor("Time %3d, clk = %b rst = %b, cs = %d, ns = %d, rinc = %d, waddr = %d rq2_waddr = %d, rempty = %d, read_en = %d, raddr = %d, rgray = %d", $time, clk1, rst, frl.current_state, frl.next_state, frl.rinc, waddr, frl.rq2_waddr, frl.rempty, frl.read_en, frl.raddr, frl.raddr_gray);
 
 endmodule
