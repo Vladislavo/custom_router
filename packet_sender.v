@@ -6,7 +6,6 @@
 `define SIZE   2
 `define DATA   3
 
-`define SIZE_MASK 111
 `define SIZE_BITS 3
 
 module packet_sender #(UWIDTH = 8, PTR_IN_SZ = 4)
@@ -21,11 +20,11 @@ module packet_sender #(UWIDTH = 8, PTR_IN_SZ = 4)
   reg [2:0] current_state, next_state;
 
   reg [(`SIZE_BITS-1):0] dsz;
-//  reg [(PTR_IN_SZ-1):0]  raddr_in_next;
+  //reg [(PTR_IN_SZ-1):0]  raddr_in_next;
 
   assign packet_out = rdata;
 
-  always @(posedge clk or negedge rst)
+  always @(negedge clk or negedge rst)
   begin
     if (!rst) current_state <= IDLE;
     else      current_state <= next_state;
@@ -69,38 +68,32 @@ module packet_sender #(UWIDTH = 8, PTR_IN_SZ = 4)
     next_state = current_state;
     packet_valid = 1;
     rinc = 0;
+    raddr_in = `SIZE;
 
     case (current_state)
       IDLE: begin
         packet_valid = 0;
         if (!rempty) begin
           next_state = SRC;
-          //raddr_in_next = `SRC_ID;
         end else begin
           next_state = IDLE;
         end
       end
       SRC: begin
-        //raddr_in_next = `DST_ID
-        raddr_in = `DST_ID;
+        dsz = rdata[(`SIZE_BITS-1):0];
+        raddr_in = `SRC_ID;
         next_state = DST;
       end
       DST: begin
-        //raddr_in_next = `SIZE;
-        raddr_in = `SIZE;
+        raddr_in = `DST_ID;
         next_state = SIZE;
       end
       SIZE: begin
-        dsz = rdata & `SIZE_MASK;
-        //raddr_in_next = `DATA;
-        raddr_in = `DATA;
+        raddr_in = `SIZE;
         next_state = DATA;
       end
       DATA: begin
-        //raddr_in_next = raddr_in_next + 1;
-        raddr_in = raddr_in + 1;
         if (dsz) begin
-          dsz = dsz - 1;
           next_state = DATA;
         end else begin
           next_state = CRC;
@@ -114,9 +107,16 @@ module packet_sender #(UWIDTH = 8, PTR_IN_SZ = 4)
     endcase
   end
 
-  always @(negedge rst) begin
-    dsz <= 0;
-    raddr_in <= 0;
+  always @(posedge clk or negedge rst) begin
+    if (!rst) begin
+      dsz <= 0;
+      raddr_in <= 0;
+    end else begin
+      if (current_state == DATA) begin
+        raddr_in <= raddr_in + 1;
+        dsz <= dsz - 1;
+      end
+    end
   end
 
 endmodule

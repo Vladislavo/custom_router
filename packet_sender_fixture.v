@@ -1,8 +1,8 @@
 `include "fifo.v"
 `include "packet_sender.v"
 
-//`define CLK_1     5 // for test ease
-`define CLK_1     2 // F=250KHz T=4us
+`define CLK_1     5 // for test ease
+//`define CLK_1     2 // F=250KHz T=4us
 `define CLK_2     5 // F=100KHz T=10us
 
 `define DEPTH     4
@@ -113,13 +113,13 @@ module packet_sender_fixture;
                        $display("[0][%d] = %b [1][%d] = %b [2][%d] = %b [3][%d] = %b", i, f.fm.memory[0][i], i, f.fm.memory[1][i], i, f.fm.memory[2][i], i, f.fm.memory[3][i]);
          
          // fifo_write_logic
-         $display("Write Logic\ncs = %d, ns = %d, winc = %d, rq2_raddr = %d, wfull = %d, wfull_tmp = %d, write_en = %d, waddr = %d, waddr_tmp = %d, waddr_gray = %d", f.fwl.current_state, f.fwl.next_state, f.fwl.winc, f.fwl.rq2_raddr, f.fwl.wfull, f.fwl.wfull_tmp, f.fwl.write_en, f.fwl.waddr, f.fwl.waddr_tmp, f.fwl.waddr_gray);
+         $display("Write Logic\nwinc = %d, rq2_raddr = %d, wfull = %d, write_en = %d, waddr = %d, waddr_gray = %d", f.fwl.winc, f.fwl.rq2_raddr, f.fwl.wfull, f.fwl.write_en, f.fwl.waddr, f.fwl.waddr_gray);
                   
          // fifo_read_logic
-         $display("Read Logic\ncs = %d, ns = %d, rinc = %d, rq2_waddr = %d, rempty = %d, rempty_tmp = %d, read_en = %d, raddr = %d, r_tmp = %d, rgray = %d", f.frl.current_state, f.frl.next_state, f.frl.rinc, f.frl.rq2_waddr, f.frl.rempty, f.frl.rempty_tmp, f.frl.read_en, f.frl.raddr, f.frl.raddr_tmp, f.frl.raddr_gray);
+         $display("Read Logic\nrinc = %d, rq2_waddr = %d, rempty = %d, read_en = %d, raddr = %d, raddr_gray = %d", f.frl.rinc, f.frl.rq2_waddr, f.frl.rempty, f.frl.read_en, f.frl.raddr, f.frl.raddr_gray);
 
          // packet_sender
-         $display("Packet Sender\ncs = %d, ns = %d, raddr_in = %d, rdata = %d, pout = %d, pv = %d, rinc = %d rempty = %d, ", ps.current_state, ps.next_state, ps.raddr_in, ps.rdata, packet_out, packet_valid, ps.rinc, ps.rempty);
+         $display("Packet Sender\ncs = %d, ns = %d, raddr_in = %d, rdata = %d, pout = %d, pv = %d, rinc = %d rempty = %d, dsz = %d", ps.current_state, ps.next_state, ps.raddr_in, ps.rdata, packet_out, packet_valid, ps.rinc, ps.rempty, ps.dsz);
        end
      end
      begin: dve_thread
