@@ -54,7 +54,7 @@ module packet_sender_fixture;
        #`CLK_1 waddr_in = 4; wdata = 1; // data 2
        #`CLK_1 waddr_in = 5; wdata = 2; // data 3
        #`CLK_1 waddr_in = 6; wdata = 15; winc = 1; // crc
-       #`CLK_1 winc = 0;
+       #`CLK_1 wdata = 0; winc = 0;
        $display("=======================================packet 1 done");
        /*
        // packet 2 
