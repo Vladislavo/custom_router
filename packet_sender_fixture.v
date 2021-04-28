@@ -1,3 +1,6 @@
+// packet_sender_fixture.v
+// Author: Vladislav Rykov
+
 `include "fifo.v"
 `include "packet_sender.v"
 

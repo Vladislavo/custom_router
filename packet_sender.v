@@ -1,6 +1,6 @@
 // packet_sender.v
 // Author: Vladislav Rykov
-// Notes: packet sender requires one clock cycle between successive packets.
+// Note: current version of design requires one clock cycle between successive packets.
 
 `define SRC_ID 0
 `define DST_ID 1

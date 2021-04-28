@@ -1,3 +1,6 @@
+// fifo_fixture.v
+// Author: Vladislav Rykov
+
 `include "fifo.v"
 
 //`define CLK_1     5 // for test ease
