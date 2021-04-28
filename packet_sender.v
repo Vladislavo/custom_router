@@ -1,5 +1,6 @@
 // packet_sender.v
 // Author: Vladislav Rykov
+// Notes: packet sender requires one clock cycle between successive packets.
 
 `define SRC_ID 0
 `define DST_ID 1
@@ -20,6 +21,7 @@ module packet_sender #(UWIDTH = 8, PTR_IN_SZ = 4)
   reg [2:0] current_state, next_state;
 
   reg [(`SIZE_BITS-1):0] dsz;
+  reg rinc_next;
 
   assign packet_out = rdata;
 
@@ -33,7 +35,7 @@ module packet_sender #(UWIDTH = 8, PTR_IN_SZ = 4)
   always @(current_state or rempty or dsz)
   begin
     next_state = current_state;
-    rinc = 0;
+    rinc_next = 0;
     packet_valid = 1;
 
     case (current_state)
@@ -65,7 +67,7 @@ module packet_sender #(UWIDTH = 8, PTR_IN_SZ = 4)
         end
       end
       CRC: begin
-        rinc = 1;
+        rinc_next = 1;
         next_state = IDLE;
       end
     endcase
@@ -75,11 +77,13 @@ module packet_sender #(UWIDTH = 8, PTR_IN_SZ = 4)
   always @(negedge rst) begin
     dsz = 0;
     raddr_in = 0;
+    rinc_next = 0;
   end
 
   always @(negedge clk) begin
     if (current_state != IDLE) raddr_in = raddr_in + 1;
     if (current_state == DATA) dsz = dsz - 1;
+    rinc = rinc_next;
   end
 
 endmodule
