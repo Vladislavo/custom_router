@@ -25,6 +25,7 @@ module packet_sender #(UWIDTH = 8, PTR_IN_SZ = 4)
 
   assign packet_out = rdata;
 
+  // clk negedge is chosen here to make it synchronous to the posedge
   always @(negedge clk or negedge rst)
   begin
     if (!rst) current_state <= IDLE;
