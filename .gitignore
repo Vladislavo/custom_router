@@ -4,3 +4,5 @@ simv.daidir/
 csrc/
 ucli.key
 vcdplus.vpd
+*.swp
+.nfs*
