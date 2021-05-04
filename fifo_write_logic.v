@@ -22,7 +22,7 @@ module fifo_write_logic #(parameter PTR_SZ = 2)
     if (rst) waddr = waddr_aux[(PTR_SZ-1):0];
   end
 
-  always @(winc or negedge rst)
+  always @(winc or rst)
   begin
     if (!rst)                waddr_aux = 0;
     else if (winc && !wfull) waddr_aux = waddr_aux + 1;

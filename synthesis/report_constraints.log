@@ -1,0 +1,332 @@
+ 
+****************************************
+Report : constraint
+        -all_violators
+Design : router
+Version: P-2019.03-SP2
+Date   : Tue May  4 15:00:43 2021
+****************************************
+
+
+   max_delay/setup ('clk1' group)
+
+                             Required        Actual
+   Endpoint                 Path Delay     Path Delay        Slack
+   -----------------------------------------------------------------
+   packet_receiver1/present_state_reg[1]/D
+                                1.15           3.58 r        -2.43  (VIOLATED)
+   packet_receiver1/present_state_reg[0]/D
+                                1.15           3.35 r        -2.20  (VIOLATED)
+   packet_receiver1/present_state_reg[2]/D
+                                1.15           3.13 r        -1.98  (VIOLATED)
+   packet_receiver1/stop_packet_send_reg/D
+                                1.15           2.22 f        -1.07  (VIOLATED)
+   packet_receiver1/pv_temp1_reg/D
+                                1.15           2.00 r        -0.85  (VIOLATED)
+   packet_receiver1/temp1_reg[0]/D
+                                1.15           2.00 r        -0.85  (VIOLATED)
+   packet_receiver1/temp1_reg[1]/D
+                                1.15           2.00 r        -0.85  (VIOLATED)
+   packet_receiver1/temp1_reg[2]/D
+                                1.15           2.00 r        -0.85  (VIOLATED)
+   packet_receiver1/temp1_reg[3]/D
+                                1.15           2.00 r        -0.85  (VIOLATED)
+   packet_receiver1/temp1_reg[4]/D
+                                1.15           2.00 r        -0.85  (VIOLATED)
+   packet_receiver1/temp1_reg[5]/D
+                                1.15           2.00 r        -0.85  (VIOLATED)
+   packet_receiver1/temp1_reg[6]/D
+                                1.15           2.00 r        -0.85  (VIOLATED)
+   packet_receiver1/temp1_reg[7]/D
+                                1.15           2.00 r        -0.85  (VIOLATED)
+   packet_receiver1/winc_port_1_reg/D
+                                1.15           1.90 f        -0.75  (VIOLATED)
+   packet_receiver1/winc_port_2_reg/D
+                                1.15           1.85 r        -0.70  (VIOLATED)
+   packet_receiver1/winc_port_3_reg/D
+                                1.15           1.85 r        -0.70  (VIOLATED)
+
+
+   max_delay/setup ('clk2' group)
+
+                             Required        Actual
+   Endpoint                 Path Delay     Path Delay        Slack
+   -----------------------------------------------------------------
+   packet_sender2/raddr_in_reg[0]/K
+                                1.10           2.18 r        -1.08  (VIOLATED)
+   packet_sender3/raddr_in_reg[0]/K
+                                1.10           2.18 r        -1.08  (VIOLATED)
+   packet_sender2/current_state_reg[0]/D
+                                1.65           2.70 r        -1.05  (VIOLATED)
+   packet_sender3/current_state_reg[0]/D
+                                1.65           2.70 r        -1.05  (VIOLATED)
+   packet_sender2/raddr_in_reg[3]/D
+                                1.65           2.69 r        -1.04  (VIOLATED)
+   packet_sender3/raddr_in_reg[3]/D
+                                1.65           2.69 r        -1.04  (VIOLATED)
+   packet_sender1/current_state_reg[0]/D
+                                1.65           2.61 f        -0.96  (VIOLATED)
+   packet_sender1/raddr_in_reg[1]/D
+                                1.65           2.55 r        -0.90  (VIOLATED)
+   packet_sender1/raddr_in_reg[0]/D
+                                1.65           2.51 f        -0.86  (VIOLATED)
+   packet_sender1/raddr_in_reg[3]/D
+                                1.65           2.50 f        -0.85  (VIOLATED)
+   packet_sender2/raddr_in_reg[2]/D
+                                1.65           2.50 r        -0.85  (VIOLATED)
+   packet_sender3/raddr_in_reg[2]/D
+                                1.65           2.50 r        -0.85  (VIOLATED)
+   packet_sender1/raddr_in_reg[2]/D
+                                1.65           2.49 r        -0.84  (VIOLATED)
+   packet_sender2/raddr_in_reg[1]/D
+                                1.65           2.49 r        -0.84  (VIOLATED)
+   packet_sender3/raddr_in_reg[1]/D
+                                1.65           2.47 r        -0.82  (VIOLATED)
+   packet_valid_o2              0.50           1.20 r        -0.70  (VIOLATED)
+   packet_valid_o1              0.50           1.18 r        -0.68  (VIOLATED)
+   packet_valid_o3              0.50           1.18 r        -0.68  (VIOLATED)
+
+
+   max_area
+
+                             Required        Actual
+   Design                      Area           Area           Slack
+   -----------------------------------------------------------------
+   router                       0.00        9517.00       -9517.00  (VIOLATED)
+
+
+Min pulse width constraints
+
+                       Required      Actual
+  Pin                pulse width   pulse width   Slack           Scenario
+--------------------------------------------------------------------------------
+  fifo1/fwl/waddr_reg[0]/CP(low)
+                      1.80          1.00         -0.80 (VIOLATED)
+  fifo1/fwl/waddr_reg[1]/CP(low)
+                      1.80          1.00         -0.80 (VIOLATED)
+  fifo2/fwl/waddr_reg[0]/CP(low)
+                      1.80          1.00         -0.80 (VIOLATED)
+  fifo2/fwl/waddr_reg[1]/CP(low)
+                      1.80          1.00         -0.80 (VIOLATED)
+  fifo3/fwl/waddr_reg[0]/CP(low)
+                      1.80          1.00         -0.80 (VIOLATED)
+  fifo3/fwl/waddr_reg[1]/CP(low)
+                      1.80          1.00         -0.80 (VIOLATED)
+  fifo1/fs/r2wdff1/rq1_addr_reg[0]/CP(high)
+                      1.50          1.00         -0.50 (VIOLATED)
+  fifo1/fs/r2wdff1/rq1_addr_reg[0]/CP(low)
+                      1.50          1.00         -0.50 (VIOLATED)
+  fifo1/fs/r2wdff1/rq1_addr_reg[1]/CP(high)
+                      1.50          1.00         -0.50 (VIOLATED)
+  fifo1/fs/r2wdff1/rq1_addr_reg[1]/CP(low)
+                      1.50          1.00         -0.50 (VIOLATED)
+  fifo1/fs/r2wdff1/rq1_addr_reg[2]/CP(high)
+                      1.50          1.00         -0.50 (VIOLATED)
+  fifo1/fs/r2wdff1/rq1_addr_reg[2]/CP(low)
+                      1.50          1.00         -0.50 (VIOLATED)
+  fifo1/fs/r2wdff1/rq2_addr_reg[0]/CP(high)
+                      1.50          1.00         -0.50 (VIOLATED)
+  fifo1/fs/r2wdff1/rq2_addr_reg[0]/CP(low)
+                      1.50          1.00         -0.50 (VIOLATED)
+  fifo1/fs/r2wdff1/rq2_addr_reg[1]/CP(high)
+                      1.50          1.00         -0.50 (VIOLATED)
+  fifo1/fs/r2wdff1/rq2_addr_reg[1]/CP(low)
+                      1.50          1.00         -0.50 (VIOLATED)
+  fifo1/fs/r2wdff1/rq2_addr_reg[2]/CP(high)
+                      1.50          1.00         -0.50 (VIOLATED)
+  fifo1/fs/r2wdff1/rq2_addr_reg[2]/CP(low)
+                      1.50          1.00         -0.50 (VIOLATED)
+  fifo1/fwl/waddr_reg[0]/CP(high)
+                      1.50          1.00         -0.50 (VIOLATED)
+  fifo1/fwl/waddr_reg[1]/CP(high)
+                      1.50          1.00         -0.50 (VIOLATED)
+  fifo2/fs/r2wdff1/rq1_addr_reg[0]/CP(high)
+                      1.50          1.00         -0.50 (VIOLATED)
+  fifo2/fs/r2wdff1/rq1_addr_reg[0]/CP(low)
+                      1.50          1.00         -0.50 (VIOLATED)
+  fifo2/fs/r2wdff1/rq1_addr_reg[1]/CP(high)
+                      1.50          1.00         -0.50 (VIOLATED)
+  fifo2/fs/r2wdff1/rq1_addr_reg[1]/CP(low)
+                      1.50          1.00         -0.50 (VIOLATED)
+  fifo2/fs/r2wdff1/rq1_addr_reg[2]/CP(high)
+                      1.50          1.00         -0.50 (VIOLATED)
+  fifo2/fs/r2wdff1/rq1_addr_reg[2]/CP(low)
+                      1.50          1.00         -0.50 (VIOLATED)
+  fifo2/fs/r2wdff1/rq2_addr_reg[0]/CP(high)
+                      1.50          1.00         -0.50 (VIOLATED)
+  fifo2/fs/r2wdff1/rq2_addr_reg[0]/CP(low)
+                      1.50          1.00         -0.50 (VIOLATED)
+  fifo2/fs/r2wdff1/rq2_addr_reg[1]/CP(high)
+                      1.50          1.00         -0.50 (VIOLATED)
+  fifo2/fs/r2wdff1/rq2_addr_reg[1]/CP(low)
+                      1.50          1.00         -0.50 (VIOLATED)
+  fifo2/fs/r2wdff1/rq2_addr_reg[2]/CP(high)
+                      1.50          1.00         -0.50 (VIOLATED)
+  fifo2/fs/r2wdff1/rq2_addr_reg[2]/CP(low)
+                      1.50          1.00         -0.50 (VIOLATED)
+  fifo2/fwl/waddr_reg[0]/CP(high)
+                      1.50          1.00         -0.50 (VIOLATED)
+  fifo2/fwl/waddr_reg[1]/CP(high)
+                      1.50          1.00         -0.50 (VIOLATED)
+  fifo3/fs/r2wdff1/rq1_addr_reg[0]/CP(high)
+                      1.50          1.00         -0.50 (VIOLATED)
+  fifo3/fs/r2wdff1/rq1_addr_reg[0]/CP(low)
+                      1.50          1.00         -0.50 (VIOLATED)
+  fifo3/fs/r2wdff1/rq1_addr_reg[1]/CP(high)
+                      1.50          1.00         -0.50 (VIOLATED)
+  fifo3/fs/r2wdff1/rq1_addr_reg[1]/CP(low)
+                      1.50          1.00         -0.50 (VIOLATED)
+  fifo3/fs/r2wdff1/rq1_addr_reg[2]/CP(high)
+                      1.50          1.00         -0.50 (VIOLATED)
+  fifo3/fs/r2wdff1/rq1_addr_reg[2]/CP(low)
+                      1.50          1.00         -0.50 (VIOLATED)
+  fifo3/fs/r2wdff1/rq2_addr_reg[0]/CP(high)
+                      1.50          1.00         -0.50 (VIOLATED)
+  fifo3/fs/r2wdff1/rq2_addr_reg[0]/CP(low)
+                      1.50          1.00         -0.50 (VIOLATED)
+  fifo3/fs/r2wdff1/rq2_addr_reg[1]/CP(high)
+                      1.50          1.00         -0.50 (VIOLATED)
+  fifo3/fs/r2wdff1/rq2_addr_reg[1]/CP(low)
+                      1.50          1.00         -0.50 (VIOLATED)
+  fifo3/fs/r2wdff1/rq2_addr_reg[2]/CP(high)
+                      1.50          1.00         -0.50 (VIOLATED)
+  fifo3/fs/r2wdff1/rq2_addr_reg[2]/CP(low)
+                      1.50          1.00         -0.50 (VIOLATED)
+  fifo3/fwl/waddr_reg[0]/CP(high)
+                      1.50          1.00         -0.50 (VIOLATED)
+  fifo3/fwl/waddr_reg[1]/CP(high)
+                      1.50          1.00         -0.50 (VIOLATED)
+  packet_receiver1/present_state_reg[0]/CP(high)
+                      1.50          1.00         -0.50 (VIOLATED)
+  packet_receiver1/present_state_reg[0]/CP(low)
+                      1.50          1.00         -0.50 (VIOLATED)
+  packet_receiver1/present_state_reg[1]/CP(high)
+                      1.50          1.00         -0.50 (VIOLATED)
+  packet_receiver1/present_state_reg[1]/CP(low)
+                      1.50          1.00         -0.50 (VIOLATED)
+  packet_receiver1/present_state_reg[2]/CP(high)
+                      1.50          1.00         -0.50 (VIOLATED)
+  packet_receiver1/present_state_reg[2]/CP(low)
+                      1.50          1.00         -0.50 (VIOLATED)
+  packet_receiver1/pv_temp1_reg/CP(high)
+                      1.50          1.00         -0.50 (VIOLATED)
+  packet_receiver1/pv_temp1_reg/CP(low)
+                      1.50          1.00         -0.50 (VIOLATED)
+  packet_receiver1/pv_temp2_reg/CP(high)
+                      1.50          1.00         -0.50 (VIOLATED)
+  packet_receiver1/pv_temp2_reg/CP(low)
+                      1.50          1.00         -0.50 (VIOLATED)
+  packet_receiver1/stop_packet_send_reg/CP(high)
+                      1.50          1.00         -0.50 (VIOLATED)
+  packet_receiver1/stop_packet_send_reg/CP(low)
+                      1.50          1.00         -0.50 (VIOLATED)
+  packet_receiver1/temp1_reg[0]/CP(high)
+                      1.50          1.00         -0.50 (VIOLATED)
+  packet_receiver1/temp1_reg[0]/CP(low)
+                      1.50          1.00         -0.50 (VIOLATED)
+  packet_receiver1/temp1_reg[1]/CP(high)
+                      1.50          1.00         -0.50 (VIOLATED)
+  packet_receiver1/temp1_reg[1]/CP(low)
+                      1.50          1.00         -0.50 (VIOLATED)
+  packet_receiver1/temp1_reg[2]/CP(high)
+                      1.50          1.00         -0.50 (VIOLATED)
+  packet_receiver1/temp1_reg[2]/CP(low)
+                      1.50          1.00         -0.50 (VIOLATED)
+  packet_receiver1/temp1_reg[3]/CP(high)
+                      1.50          1.00         -0.50 (VIOLATED)
+  packet_receiver1/temp1_reg[3]/CP(low)
+                      1.50          1.00         -0.50 (VIOLATED)
+  packet_receiver1/temp1_reg[4]/CP(high)
+                      1.50          1.00         -0.50 (VIOLATED)
+  packet_receiver1/temp1_reg[4]/CP(low)
+                      1.50          1.00         -0.50 (VIOLATED)
+  packet_receiver1/temp1_reg[5]/CP(high)
+                      1.50          1.00         -0.50 (VIOLATED)
+  packet_receiver1/temp1_reg[5]/CP(low)
+                      1.50          1.00         -0.50 (VIOLATED)
+  packet_receiver1/temp1_reg[6]/CP(high)
+                      1.50          1.00         -0.50 (VIOLATED)
+  packet_receiver1/temp1_reg[6]/CP(low)
+                      1.50          1.00         -0.50 (VIOLATED)
+  packet_receiver1/temp1_reg[7]/CP(high)
+                      1.50          1.00         -0.50 (VIOLATED)
+  packet_receiver1/temp1_reg[7]/CP(low)
+                      1.50          1.00         -0.50 (VIOLATED)
+  packet_receiver1/temp2_reg[0]/CP(high)
+                      1.50          1.00         -0.50 (VIOLATED)
+  packet_receiver1/temp2_reg[0]/CP(low)
+                      1.50          1.00         -0.50 (VIOLATED)
+  packet_receiver1/temp2_reg[1]/CP(high)
+                      1.50          1.00         -0.50 (VIOLATED)
+  packet_receiver1/temp2_reg[1]/CP(low)
+                      1.50          1.00         -0.50 (VIOLATED)
+  packet_receiver1/temp2_reg[2]/CP(high)
+                      1.50          1.00         -0.50 (VIOLATED)
+  packet_receiver1/temp2_reg[2]/CP(low)
+                      1.50          1.00         -0.50 (VIOLATED)
+  packet_receiver1/temp2_reg[3]/CP(high)
+                      1.50          1.00         -0.50 (VIOLATED)
+  packet_receiver1/temp2_reg[3]/CP(low)
+                      1.50          1.00         -0.50 (VIOLATED)
+  packet_receiver1/temp2_reg[4]/CP(high)
+                      1.50          1.00         -0.50 (VIOLATED)
+  packet_receiver1/temp2_reg[4]/CP(low)
+                      1.50          1.00         -0.50 (VIOLATED)
+  packet_receiver1/temp2_reg[5]/CP(high)
+                      1.50          1.00         -0.50 (VIOLATED)
+  packet_receiver1/temp2_reg[5]/CP(low)
+                      1.50          1.00         -0.50 (VIOLATED)
+  packet_receiver1/temp2_reg[6]/CP(high)
+                      1.50          1.00         -0.50 (VIOLATED)
+  packet_receiver1/temp2_reg[6]/CP(low)
+                      1.50          1.00         -0.50 (VIOLATED)
+  packet_receiver1/temp2_reg[7]/CP(high)
+                      1.50          1.00         -0.50 (VIOLATED)
+  packet_receiver1/temp2_reg[7]/CP(low)
+                      1.50          1.00         -0.50 (VIOLATED)
+  packet_receiver1/temp3_reg[0]/CP(high)
+                      1.50          1.00         -0.50 (VIOLATED)
+  packet_receiver1/temp3_reg[0]/CP(low)
+                      1.50          1.00         -0.50 (VIOLATED)
+  packet_receiver1/temp3_reg[1]/CP(high)
+                      1.50          1.00         -0.50 (VIOLATED)
+  packet_receiver1/temp3_reg[1]/CP(low)
+                      1.50          1.00         -0.50 (VIOLATED)
+  packet_receiver1/temp3_reg[2]/CP(high)
+                      1.50          1.00         -0.50 (VIOLATED)
+  packet_receiver1/temp3_reg[2]/CP(low)
+                      1.50          1.00         -0.50 (VIOLATED)
+  packet_receiver1/temp3_reg[3]/CP(high)
+                      1.50          1.00         -0.50 (VIOLATED)
+  packet_receiver1/temp3_reg[3]/CP(low)
+                      1.50          1.00         -0.50 (VIOLATED)
+  packet_receiver1/temp3_reg[4]/CP(high)
+                      1.50          1.00         -0.50 (VIOLATED)
+  packet_receiver1/temp3_reg[4]/CP(low)
+                      1.50          1.00         -0.50 (VIOLATED)
+  packet_receiver1/temp3_reg[5]/CP(high)
+                      1.50          1.00         -0.50 (VIOLATED)
+  packet_receiver1/temp3_reg[5]/CP(low)
+                      1.50          1.00         -0.50 (VIOLATED)
+  packet_receiver1/temp3_reg[6]/CP(high)
+                      1.50          1.00         -0.50 (VIOLATED)
+  packet_receiver1/temp3_reg[6]/CP(low)
+                      1.50          1.00         -0.50 (VIOLATED)
+  packet_receiver1/temp3_reg[7]/CP(high)
+                      1.50          1.00         -0.50 (VIOLATED)
+  packet_receiver1/temp3_reg[7]/CP(low)
+                      1.50          1.00         -0.50 (VIOLATED)
+  packet_receiver1/winc_port_1_reg/CP(high)
+                      1.50          1.00         -0.50 (VIOLATED)
+  packet_receiver1/winc_port_1_reg/CP(low)
+                      1.50          1.00         -0.50 (VIOLATED)
+  packet_receiver1/winc_port_2_reg/CP(high)
+                      1.50          1.00         -0.50 (VIOLATED)
+  packet_receiver1/winc_port_2_reg/CP(low)
+                      1.50          1.00         -0.50 (VIOLATED)
+  packet_receiver1/winc_port_3_reg/CP(high)
+                      1.50          1.00         -0.50 (VIOLATED)
+  packet_receiver1/winc_port_3_reg/CP(low)
+                      1.50          1.00         -0.50 (VIOLATED)
+
+1

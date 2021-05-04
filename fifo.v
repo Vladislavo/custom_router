@@ -14,7 +14,7 @@
 // PTR_IN_SZ - FIFO index within entry size in bits (ideally ceil(log2(WIDTH)) )
 //
 // * if depth is not ^2 PTR_SZ => [ (2^PTR_SZ -DEPTH)/2 , (2^PTR_SZ +DEPTH)/2 -1 ]
-module fifo #(DEPTH = 4, WIDTH = 11, UWIDTH = 8, PTR_SZ = 2, PTR_IN_SZ = 4)
+module fifo #(parameter DEPTH = 4, WIDTH = 11, UWIDTH = 8, PTR_SZ = 2, PTR_IN_SZ = 4)
              (input clk1, clk2, rst,
               input winc, rinc,
               input [(PTR_IN_SZ-1):0] waddr_in, raddr_in,

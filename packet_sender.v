@@ -9,7 +9,7 @@
 
 `define SIZE_BITS 3
 
-module packet_sender #(UWIDTH = 8, PTR_IN_SZ = 4)
+module packet_sender #(parameter UWIDTH = 8, PTR_IN_SZ = 4)
                       (input clk, rst,
                        input rempty,
                        input [(UWIDTH-1):0] rdata,
@@ -43,15 +43,15 @@ module packet_sender #(UWIDTH = 8, PTR_IN_SZ = 4)
       IDLE: begin
         packet_valid = 0;
         if (!rempty) begin
-          raddr_in = `SIZE;
+          //raddr_in = `SIZE;
           next_state = SRC;
         end else begin
           next_state = IDLE;
         end
       end
       SRC: begin
-        dsz = rdata[(`SIZE_BITS-1):0]-1;
-        raddr_in = `SRC_ID;
+        //dsz = rdata[(`SIZE_BITS-1):0]-1;
+        //raddr_in = `SRC_ID;
         next_state = DST;
       end
       DST: begin
@@ -74,17 +74,18 @@ module packet_sender #(UWIDTH = 8, PTR_IN_SZ = 4)
     endcase
   end
  
-
-  always @(negedge rst) begin
-    dsz = 0;
-    raddr_in = 0;
-    rinc_next = 0;
-  end
-
-  always @(negedge clk) begin
-    if (current_state != IDLE) raddr_in = raddr_in + 1;
-    if (current_state == DATA) dsz = dsz - 1;
-    rinc = rinc_next;
+  always @(negedge clk or negedge rst) begin
+    if (!rst) begin
+      dsz = 0;
+      raddr_in = 0;
+      //rinc_next = 0;
+    end else begin
+      if (current_state == SRC) dsz = rdata[(`SIZE_BITS-1):0]-1;
+      if (current_state != IDLE) raddr_in = raddr_in + 1;
+      else if (!rempty) raddr_in = `SIZE;
+      if (current_state == DATA) dsz = dsz - 1;
+      rinc = rinc_next;
+    end
   end
 
 endmodule

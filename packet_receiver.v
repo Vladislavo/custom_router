@@ -1,7 +1,7 @@
 //packet_receiver.v
 //Author:Sushma Kakarla, Vladislav Rykov
 
-module packet_receiver#(TS1=8'd0,TS2=8'd1,TS3=8'd2,PTR_IN_SZ = 4,UWIDTH = 8)(input clk1,rst,packet_valid_i,
+module packet_receiver#(parameter TS1=8'd0,TS2=8'd1,TS3=8'd2,PTR_IN_SZ = 4,UWIDTH = 8)(input clk1,rst,packet_valid_i,
 				  input [(UWIDTH-1):0]pdata,
 				  input wfull_port_1,wfull_port_2,wfull_port_3,
                   output reg stop_packet_send, 
@@ -10,7 +10,7 @@ module packet_receiver#(TS1=8'd0,TS2=8'd1,TS3=8'd2,PTR_IN_SZ = 4,UWIDTH = 8)(inp
                   output reg [7:0]wdata_port_1,wdata_port_2,wdata_port_3
                   );
  
- parameter  IDLE		=	4'b0000,
+ localparam  IDLE		=	4'b0000,
 			SRC		    =	4'b0001,
 			DST		    =	4'b0010,
 			SIZE		=	4'b0011,
@@ -29,19 +29,28 @@ reg winc_port_1_next, winc_port_2_next, winc_port_3_next;
 //reg ocpd;
 //-------------------------------------------------------------------------------------------------------------------------------------------
 //temp1 logic
- always @(posedge clk1)
+ always @(posedge clk1 or negedge rst)
  	begin
+          if (!rst) begin
+            temp1 <= 0;
+            temp2 <= 0;
+            temp3 <= 0;
+            pv_temp1 <= 0;
+            pv_temp2 <= 0;
+            pv_temp3 <= 0;
+          end else begin
  		temp1 <=pdata;                                      //temp1 carry present data entered in
  		temp2 <=temp1;                                      //temp2 holds byte stored in register to be sent after delay
  		temp3 <=temp2;                                      //temp2 holds byte stored in register to be sent after delay
                 pv_temp1 <= packet_valid_i;
                 pv_temp2 <= pv_temp1;
                 pv_temp3 <= pv_temp2;
+          end
  	end
 
 //--------------------------------------------------------------------------------------------------------------------------------------------
 // rst logic for states
-always@(posedge clk1 or negedge rst)
+always @(posedge clk1 or negedge rst)
 	begin
 		if(!rst)
 		present_state <=IDLE;  
@@ -49,21 +58,16 @@ always@(posedge clk1 or negedge rst)
 		present_state <=next_state;
 	end
 //--------------------------------------------------------------------------------------------------------------------------------------------
-//reset all regesters
-always@(negedge rst)
-begin winc_port_1_next=0; winc_port_2_next=0; winc_port_3_next=0; waddr_in_port_1=0;waddr_in_port_2=0;waddr_in_port_3=0;
- trusted=0; dest_p=0; temp1=0; temp2=0; temp3=0; x=0; k=0; pv_temp1 = 0; pv_temp2 = 0; pv_temp3 = 0; stop_packet_send = 0; 
- winc_port_1 = 0; winc_port_2 = 0; winc_port_3 = 0; end //ocpd = 0; end
-//--------------------------------------------------------------------------------------------------------------------------------------------
 // stop packet send enable and disable block
-always@(posedge clk1)
+always@(posedge clk1 or negedge rst)
     begin 
-        if(wfull_port_1 || wfull_port_2 || wfull_port_3)
-             stop_packet_send <=1'b1;
-        else stop_packet_send <=1'b0;
+        if (!rst) stop_packet_send <=0;
+        else if(wfull_port_1 || wfull_port_2 || wfull_port_3)
+               stop_packet_send <=1'b1;
+          else stop_packet_send <=1'b0;
     end
 //-------------------------------------------------------------------------------------------------------------------------------------------	
-always@(present_state or posedge packet_valid_i or k or stop_packet_send)
+always@(present_state or packet_valid_i or temp3 or stop_packet_send)
 	begin
      //wdata_port_1=0;wdata_port_2=0;wdata_port_3=0;
      winc_port_1_next=0;winc_port_2_next=0;winc_port_3_next=0; x=0;
@@ -161,23 +165,23 @@ always@(present_state or posedge packet_valid_i or k or stop_packet_send)
 		if (dest_p==1 && trusted==1)
                   begin wdata_port_1=temp3;                 //Size byte is transmitted to memory and later data bytes are transferred
                   waddr_in_port_1=waddr_in_port_1+1;    //************************************************************************
-                  //k=k-1;                                    //K is decremented until all data enters into receiver
+                  k=k-1;                                    //K is decremented until all data enters into receiver
                   if(k==0) next_state=CRC;                  //If last data byte enters into receiver go to next state
                   else next_state=DATA; end
 		else if(dest_p==2 && trusted==1)
                   begin wdata_port_2=temp3;                 //Size byte is transmitted to memory and later data bytes are transferred
                   waddr_in_port_2=waddr_in_port_2+1;
-                  //k=k-1;                                    //K is decremented until all data enters into receiver
+                  k=k-1;                                    //K is decremented until all data enters into receiver
                   if(k==0) next_state=CRC;                  //If last data byte enters into receiver go to next state
                   else next_state=DATA; end
                 else if (dest_p==3 && trusted==1)
                   begin wdata_port_3=temp3;                 //Size byte is transmitted to memory and later data bytes are transferred
                   waddr_in_port_3=waddr_in_port_3+1;
-                  //k=k-1;                                    //K is decremented until all data enters into receiver
+                  k=k-1;                                    //K is decremented until all data enters into receiver
                   if(k==0) next_state=CRC;                  //If last data byte enters into receiver go to next state
                   else next_state=DATA; end
                 else 
-                  begin  //k=k-1;                        
+                  begin  k=k-1;                        
                   if(k==0) next_state=CRC;            
                   else next_state=DATA; end
 		end
@@ -223,10 +227,16 @@ always@(present_state or posedge packet_valid_i or k or stop_packet_send)
 				next_state=IDLE; 
  		endcase								              	// state machine completed
     end
-  always @(posedge clk1) begin
-    if (present_state == DATA) k <= k-1;
-    winc_port_1 = winc_port_1_next;
-    winc_port_2 = winc_port_2_next;
-    winc_port_3 = winc_port_3_next;
+  always @(posedge clk1 or negedge rst) begin
+    if (!rst) begin
+      winc_port_1 <= 0;
+      winc_port_2 <= 0;
+      winc_port_3 <= 0;
+    end else begin
+      //if (present_state == DATA) k <= k-1;
+      winc_port_1 <= winc_port_1_next;
+      winc_port_2 <= winc_port_2_next;
+      winc_port_3 <= winc_port_3_next;
+    end
   end
 endmodule      

@@ -16,15 +16,16 @@ module fifo_read_logic #(parameter PTR_SZ = 2)
   assign rempty = (rq2_waddr == raddr_gray);
   assign read_en = !rempty;
 
-  always @(rinc)
+  always @(rinc or rst)
   begin
-    if (rinc && !rempty) raddr_aux = raddr_aux + 1;
+    if (!rst) raddr_aux = 0;
+    else 
+      if (rinc && !rempty) raddr_aux = raddr_aux + 1;
   end
 
-  always @(posedge clk or negedge rst)
+  always @(posedge clk)
   begin
-      if (!rst) raddr_aux = 0;
-      else raddr = raddr_aux[(PTR_SZ-1):0];
+    raddr = raddr_aux[(PTR_SZ-1):0];
   end
 
 endmodule

@@ -5,7 +5,7 @@
 `include "fifo.v"
 `include "packet_sender.v"
 
-module router #(DEPTH=4,WIDTH=11,UWIDTH=8,PTR_SZ=2,PTR_IN_SZ=4,TS1=8'd0,TS2=8'd1,TS3=8'd2)
+module router #(parameter DEPTH=4,WIDTH=11,UWIDTH=8,PTR_SZ=2,PTR_IN_SZ=4,TS1=8'd0,TS2=8'd1,TS3=8'd2)
 
 (input clk1,clk2,rst,packet_valid_i,
 input [(UWIDTH-1):0] packet_in,

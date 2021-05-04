@@ -1,0 +1,87 @@
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : router
+Version: P-2019.03-SP2
+Date   : Tue May  4 15:00:43 2021
+****************************************
+
+Operating Conditions: BCCOM   Library: lsi_10k
+Wire Load Model Mode: top
+
+  Startpoint: packet_receiver1/present_state_reg[1]
+              (rising edge-triggered flip-flop clocked by clk1)
+  Endpoint: packet_receiver1/present_state_reg[1]
+            (rising edge-triggered flip-flop clocked by clk1)
+  Path Group: clk1
+  Path Type: max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk1 (rise edge)                                  0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  packet_receiver1/present_state_reg[1]/CP (FD2P)         0.00       0.00 r
+  packet_receiver1/present_state_reg[1]/QN (FD2P)         0.96       0.96 r
+  packet_receiver1/U24/Z (ND2P)                           0.13       1.09 f
+  packet_receiver1/U23/Z (NR2P)                           0.48       1.57 r
+  packet_receiver1/U37/Z (ND3)                            0.31       1.88 f
+  packet_receiver1/U39/Z (AO4)                            0.67       2.54 r
+  packet_receiver1/U40/Z (IVA)                            0.19       2.73 f
+  packet_receiver1/U41/Z (ND2)                            0.32       3.06 r
+  packet_receiver1/next_state_reg[1]/Q (LD1)              0.53       3.58 r
+  packet_receiver1/present_state_reg[1]/D (FD2P)          0.00       3.58 r
+  data arrival time                                                  3.58
+
+  clock clk1 (rise edge)                                  2.00       2.00
+  clock network delay (ideal)                             0.00       2.00
+  packet_receiver1/present_state_reg[1]/CP (FD2P)         0.00       2.00 r
+  library setup time                                     -0.85       1.15
+  data required time                                                 1.15
+  --------------------------------------------------------------------------
+  data required time                                                 1.15
+  data arrival time                                                 -3.58
+  --------------------------------------------------------------------------
+  slack (VIOLATED)                                                  -2.43
+
+
+  Startpoint: fifo2/fs/w2rdff1/rq2_addr_reg[2]
+              (rising edge-triggered flip-flop clocked by clk2)
+  Endpoint: packet_sender2/raddr_in_reg[0]
+            (rising edge-triggered flip-flop clocked by clk2')
+  Path Group: clk2
+  Path Type: max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk2 (rise edge)                                  0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  fifo2/fs/w2rdff1/rq2_addr_reg[2]/CP (FD3)               0.00       0.00 r
+  fifo2/fs/w2rdff1/rq2_addr_reg[2]/Q (FD3)                0.72       0.72 f
+  fifo2/fs/w2rdff1/rq2_addr[2] (DFF1_4)                   0.00       0.72 f
+  fifo2/fs/rq2_waddr[2] (synchronizer_2)                  0.00       0.72 f
+  fifo2/frl/rq2_waddr[2] (fifo_read_logic_2)              0.00       0.72 f
+  fifo2/frl/U5/Z (ENP)                                    0.58       1.29 f
+  fifo2/frl/U7/Z (AN3P)                                   0.56       1.85 f
+  fifo2/frl/rempty (fifo_read_logic_2)                    0.00       1.85 f
+  fifo2/rempty (fifo_2)                                   0.00       1.85 f
+  packet_sender2/rempty (packet_sender_2)                 0.00       1.85 f
+  packet_sender2/U24/Z (ND2)                              0.32       2.18 r
+  packet_sender2/raddr_in_reg[0]/K (FJK2)                 0.00       2.18 r
+  data arrival time                                                  2.18
+
+  clock clk2' (rise edge)                                 2.50       2.50
+  clock network delay (ideal)                             0.00       2.50
+  packet_sender2/raddr_in_reg[0]/CP (FJK2)                0.00       2.50 r
+  library setup time                                     -1.40       1.10
+  data required time                                                 1.10
+  --------------------------------------------------------------------------
+  data required time                                                 1.10
+  data arrival time                                                 -2.18
+  --------------------------------------------------------------------------
+  slack (VIOLATED)                                                  -1.08
+
+
+1
