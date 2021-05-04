@@ -17,15 +17,15 @@ module fifo_write_logic #(parameter PTR_SZ = 2)
                  (waddr_gray[(PTR_SZ-2):0] == rq2_raddr[(PTR_SZ-2):0]);
   assign write_en = !wfull;
   
-  always @(posedge clk)
+  always @(posedge clk or negedge rst)
   begin
-    if (rst) waddr = waddr_aux[(PTR_SZ-1):0];
+    if (!rst) waddr_aux = 0;
+    else      waddr = waddr_aux[(PTR_SZ-1):0];
   end
 
-  always @(winc or negedge rst)
+  always @(winc)
   begin
-    if (!rst)                waddr_aux = 0;
-    else if (winc && !wfull) waddr_aux = waddr_aux + 1;
+    if (winc && !wfull) waddr_aux = waddr_aux + 1;
   end
 
 endmodule
