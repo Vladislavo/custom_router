@@ -6,3 +6,7 @@ ucli.key
 vcdplus.vpd
 *.swp
 .nfs*
+DVEfiles/
+inter.vpd
+*.old
+*.tcl
