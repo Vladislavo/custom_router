@@ -2,7 +2,7 @@
 // Author: Vladislav Rykov
 
 `include "fifo.v"
-`include "packet_sender.v"
+`include "packet_sender_n.v"
 
 `define CLK_1     5 // for test ease
 //`define CLK_1     2 // F=250KHz T=4us
