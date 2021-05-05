@@ -51,25 +51,25 @@ module packet_sender_fixture;
        // packet 1
        #`CLK_1 rst = 1; 
        #(`CLK_1*2) waddr_in = 0; wdata = 10; // source_id
-       #`CLK_1 waddr_in = 1; wdata = 160; // dest_id
-       #`CLK_1 waddr_in = 2; wdata = 3; // size
-       #`CLK_1 waddr_in = 3; wdata = 0; // data 1
-       #`CLK_1 waddr_in = 4; wdata = 1; // data 2
-       #`CLK_1 waddr_in = 5; wdata = 2; // data 3
-       #`CLK_1 waddr_in = 6; wdata = 15; winc = 1; // crc
+       #(`CLK_1*2) waddr_in = 1; wdata = 160; // dest_id
+       #(`CLK_1*2) waddr_in = 2; wdata = 3; // size
+       #(`CLK_1*2) waddr_in = 3; wdata = 0; // data 1
+       #(`CLK_1*2) waddr_in = 4; wdata = 1; // data 2
+       #(`CLK_1*2) waddr_in = 5; wdata = 2; // data 3
+       #(`CLK_1*2) waddr_in = 6; wdata = 15; winc = 1; // crc
        //#`CLK_1 wdata = 0; winc = 0;
        $display("=======================================packet 1 done");
        
        // packet 2 
-       #`CLK_1 winc = 0; waddr_in = 0; wdata = 100; // source_id
-       #`CLK_1 waddr_in = 1; wdata = 10; // dest_id
-       #`CLK_1 waddr_in = 2; wdata = 4; // size
-       #`CLK_1 waddr_in = 3; wdata = 0; // data 1
-       #`CLK_1 waddr_in = 4; wdata = 1; // data 2
-       #`CLK_1 waddr_in = 5; wdata = 2; // data 3
-       #`CLK_1 waddr_in = 6; wdata = 3; // data 4
-       #`CLK_1 waddr_in = 7; wdata = 55; winc = 1; // crc
-       #`CLK_1 wdata = 0; winc = 0;
+       #(`CLK_1*2) winc = 0; waddr_in = 0; wdata = 100; // source_id
+       #(`CLK_1*2) waddr_in = 1; wdata = 10; // dest_id
+       #(`CLK_1*2) waddr_in = 2; wdata = 4; // size
+       #(`CLK_1*2) waddr_in = 3; wdata = 0; // data 1
+       #(`CLK_1*2) waddr_in = 4; wdata = 1; // data 2
+       #(`CLK_1*2) waddr_in = 5; wdata = 2; // data 3
+       #(`CLK_1*2) waddr_in = 6; wdata = 3; // data 4
+       #(`CLK_1*2) waddr_in = 7; wdata = 55; winc = 1; // crc
+       #(`CLK_1*2) wdata = 0; winc = 0;
       
        /*
        $display("=======================================packet 2 done");
@@ -112,7 +112,7 @@ module packet_sender_fixture;
        */
      end
      begin: checking_thread
-       for (j = 0; j < 52; j = j+1) begin
+       for (j = 0; j < 60; j = j+1) begin
          // 1. memory dump
          #(`CLK_1) for (i = 0; i < 11; i = i+1) 
                        $display("[0][%d] = %b [1][%d] = %b [2][%d] = %b [3][%d] = %b", i, f.fm.memory[0][i], i, f.fm.memory[1][i], i, f.fm.memory[2][i], i, f.fm.memory[3][i]);
@@ -131,13 +131,13 @@ module packet_sender_fixture;
        $vcdpluson;
      end
      begin: ending_thread
-       #(52*`CLK_1) disable clock_1_thread; disable clock_2_thread; disable stimulus_thread; disable checking_thread; disable dve_thread;
+       #(60*`CLK_1) disable clock_1_thread; disable clock_2_thread; disable stimulus_thread; disable checking_thread; disable dve_thread;
      end
    join
    $finish;
   end
   
   initial
-    $monitor($time, " clk1 = %b, clk2 = %b, rst = %b", clk1, clk2, rst);
+    $monitor($time, " clk1 = %b, clk2 = %b, rst = %b, waddr_in = %d", clk1, clk2, rst, waddr_in);
 
 endmodule

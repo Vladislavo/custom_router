@@ -3,14 +3,14 @@
 Report : area
 Design : router
 Version: P-2019.03-SP2
-Date   : Tue May  4 19:14:06 2021
+Date   : Wed May  5 00:04:40 2021
 ****************************************
 
 Information: Updating design information... (UID-85)
 Information: Timing loop detected. (OPT-150)
-	fifo1/frl/U15/B fifo1/frl/U15/Z fifo1/frl/U4/B fifo1/frl/U4/Z fifo1/frl/raddr_aux_reg[2]/G fifo1/frl/raddr_aux_reg[2]/Q fifo1/frl/U16/B fifo1/frl/U16/Z fifo1/frl/U17/A fifo1/frl/U17/Z 
+	fifo1/frl/U10/B fifo1/frl/U10/Z fifo1/frl/U4/B fifo1/frl/U4/Z fifo1/frl/raddr_aux_reg[2]/G fifo1/frl/raddr_aux_reg[2]/Q fifo1/frl/U6/B fifo1/frl/U6/Z fifo1/frl/U17/A fifo1/frl/U17/Z 
 Information: Timing loop detected. (OPT-150)
-	fifo2/frl/U15/B fifo2/frl/U15/Z fifo2/frl/U4/B fifo2/frl/U4/Z fifo2/frl/raddr_aux_reg[2]/G fifo2/frl/raddr_aux_reg[2]/Q fifo2/frl/U16/B fifo2/frl/U16/Z fifo2/frl/U17/A fifo2/frl/U17/Z 
+	fifo2/frl/U10/B fifo2/frl/U10/Z fifo2/frl/U4/B fifo2/frl/U4/Z fifo2/frl/raddr_aux_reg[2]/G fifo2/frl/raddr_aux_reg[2]/Q fifo2/frl/U6/B fifo2/frl/U6/Z fifo2/frl/U17/A fifo2/frl/U17/Z 
 Warning: Disabling timing arc between pins 'G' and 'Q' on cell 'fifo1/frl/raddr_aux_reg[2]'
          to break a timing loop. (OPT-314)
 Warning: Disabling timing arc between pins 'G' and 'QN' on cell 'fifo1/frl/raddr_aux_reg[2]'
@@ -88,20 +88,20 @@ Library(s) Used:
     lsi_10k (File: /usr/pkg/syn/libraries/syn/lsi_10k.db)
 
 Number of ports:                          541
-Number of nets:                          3455
-Number of cells:                         2924
-Number of combinational cells:           1632
-Number of sequential cells:              1257
+Number of nets:                          3434
+Number of cells:                         2909
+Number of combinational cells:           1617
+Number of sequential cells:              1260
 Number of macros/black boxes:               0
-Number of buf/inv:                         94
+Number of buf/inv:                         85
 Number of references:                       7
 
-Combinational area:               2632.000000
-Buf/Inv area:                       94.000000
-Noncombinational area:            6747.000000
+Combinational area:               2607.000000
+Buf/Inv area:                       85.000000
+Noncombinational area:            6759.000000
 Macro/Black Box area:                0.000000
 Net Interconnect area:      undefined  (No wire load specified)
 
-Total cell area:                  9379.000000
+Total cell area:                  9366.000000
 Total area:                 undefined
 1

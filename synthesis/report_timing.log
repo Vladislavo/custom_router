@@ -6,7 +6,7 @@ Report : timing
         -max_paths 1
 Design : router
 Version: P-2019.03-SP2
-Date   : Tue May  4 19:14:07 2021
+Date   : Wed May  5 00:04:40 2021
 ****************************************
 
 Operating Conditions: BCCOM   Library: lsi_10k
@@ -26,9 +26,9 @@ Wire Load Model Mode: top
   input external delay                                    2.00       2.00 r
   packet_valid_i (in)                                     0.00       2.00 r
   packet_receiver1/packet_valid_i (packet_receiver)       0.00       2.00 r
-  packet_receiver1/U32/Z (ND4)                            0.52       2.52 f
-  packet_receiver1/U31/Z (AN2)                            0.42       2.94 f
-  packet_receiver1/U30/Z (AO3)                            0.40       3.33 r
+  packet_receiver1/U31/Z (ND4)                            0.52       2.52 f
+  packet_receiver1/U30/Z (AN2)                            0.42       2.94 f
+  packet_receiver1/U29/Z (AO3)                            0.40       3.33 r
   packet_receiver1/next_state_reg[0]/Q (LD1)              0.53       3.86 r
   packet_receiver1/present_state_reg[0]/D (FD2)           0.00       3.86 r
   data arrival time                                                  3.86
@@ -45,39 +45,45 @@ Wire Load Model Mode: top
   slack (VIOLATED)                                                  -0.71
 
 
-  Startpoint: packet_sender1/current_state_reg[1]
-              (rising edge-triggered flip-flop clocked by clk2')
-  Endpoint: packet_valid_o1
-            (output port clocked by clk2)
+  Startpoint: fifo1/fs/w2rdff1/rq2_addr_reg[2]
+              (rising edge-triggered flip-flop clocked by clk2)
+  Endpoint: packet_sender1/raddr_in_reg[3]
+            (rising edge-triggered flip-flop clocked by clk2')
   Path Group: clk2
   Path Type: max
 
   Point                                                   Incr       Path
   --------------------------------------------------------------------------
+  clock clk2 (rise edge)                                  0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  fifo1/fs/w2rdff1/rq2_addr_reg[2]/CP (FD2)               0.00       0.00 r
+  fifo1/fs/w2rdff1/rq2_addr_reg[2]/Q (FD2)                0.72       0.72 f
+  fifo1/fs/w2rdff1/rq2_addr[2] (DFF1_0)                   0.00       0.72 f
+  fifo1/fs/rq2_waddr[2] (synchronizer_0)                  0.00       0.72 f
+  fifo1/frl/rq2_waddr[2] (fifo_read_logic_0)              0.00       0.72 f
+  fifo1/frl/U6/Z (EO)                                     0.57       1.30 f
+  fifo1/frl/U17/Z (OR3)                                   1.03       2.33 f
+  fifo1/frl/U3/Z (IVP)                                    0.32       2.65 r
+  fifo1/frl/rempty (fifo_read_logic_0)                    0.00       2.65 r
+  fifo1/rempty (fifo_0)                                   0.00       2.65 r
+  packet_sender1/rempty (packet_sender_0)                 0.00       2.65 r
+  packet_sender1/U19/Z (AO2)                              0.32       2.97 f
+  packet_sender1/U30/Z (AO7)                              0.53       3.50 r
+  packet_sender1/U29/Z (IVP)                              0.10       3.60 f
+  packet_sender1/U27/Z (AO7)                              0.40       4.00 r
+  packet_sender1/raddr_in_reg[3]/D (FD2)                  0.00       4.00 r
+  data arrival time                                                  4.00
+
   clock clk2' (rise edge)                                 5.00       5.00
   clock network delay (ideal)                             0.00       5.00
-  packet_sender1/current_state_reg[1]/CP (FD2P)           0.00       5.00 r
-  packet_sender1/current_state_reg[1]/QN (FD2P)           1.08       6.08 f
-  packet_sender1/U24/Z (ND3P)                             0.53       6.61 r
-  packet_sender1/U22/Z (ND2P)                             0.16       6.78 f
-  packet_sender1/U29/Z (IVA)                              0.20       6.97 r
-  packet_sender1/U32/Z (ND4)                              0.34       7.31 f
-  packet_sender1/U33/Z (IVA)                              0.23       7.54 r
-  packet_sender1/U4/Z (ND2)                               0.20       7.74 f
-  packet_sender1/U55/Z (ND2)                              0.25       7.99 r
-  packet_sender1/packet_valid (packet_sender_0)           0.00       7.99 r
-  packet_valid_o1 (out)                                   0.00       7.99 r
-  data arrival time                                                  7.99
-
-  clock clk2 (rise edge)                                 10.00      10.00
-  clock network delay (ideal)                             0.00      10.00
-  output external delay                                  -2.00       8.00
-  data required time                                                 8.00
+  packet_sender1/raddr_in_reg[3]/CP (FD2)                 0.00       5.00 r
+  library setup time                                     -0.85       4.15
+  data required time                                                 4.15
   --------------------------------------------------------------------------
-  data required time                                                 8.00
-  data arrival time                                                 -7.99
+  data required time                                                 4.15
+  data arrival time                                                 -4.00
   --------------------------------------------------------------------------
-  slack (MET)                                                        0.01
+  slack (MET)                                                        0.15
 
 
 1

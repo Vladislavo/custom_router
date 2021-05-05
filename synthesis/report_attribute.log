@@ -3,7 +3,7 @@
 Report : Attribute
 Design : router
 Version: P-2019.03-SP2
-Date   : Tue May  4 19:14:06 2021
+Date   : Wed May  5 00:04:40 2021
 ****************************************
 
 Design          Object             Type      Attribute Name            Value
@@ -22,12 +22,12 @@ router          router             design    exact_sequential_map      false
 router          router             design    pads_thru_hier            false
 router          router             design    pads_respect_hier         false
 router          router             design    instance_name_suffix      
-router          router             design    compile_tdrs_cpu_time     0.632515
-router          router             design    compile_lib_cpu_time      0.205916
-router          router             design    compile_tot_cpu_time      7.022827
-router          router             design    compile_rbo_cpu_time      3.565635
-router          router             design    compile_abo_cpu_time      2.006897
-router          router             design    compile_tot_wall_time     7.365371
+router          router             design    compile_tdrs_cpu_time     0.650574
+router          router             design    compile_lib_cpu_time      0.212173
+router          router             design    compile_tot_cpu_time      6.832737
+router          router             design    compile_rbo_cpu_time      3.539557
+router          router             design    compile_abo_cpu_time      1.843872
+router          router             design    compile_tot_wall_time     7.156348
 router          router             design    temperature_from_min_lib  0.000000
 router          router             design    temperature_from_max_lib  0.000000
 router          router             design    max_area                  0.000000
@@ -241,10 +241,34 @@ router          fifo2/clk2         pin       pin_on_clock_network_per_scn
                                                                        true
 router          fifo1/clk2         pin       pin_on_clock_network_per_scn
                                                                        true
-router          packet_sender3/raddr_in_reg[1]/CP
+router          packet_sender3/U54/A
+                                   pin       pin_on_clock_network_per_scn
+                                                                       true
+router          packet_sender2/U54/A
+                                   pin       pin_on_clock_network_per_scn
+                                                                       true
+router          packet_sender1/U54/A
+                                   pin       pin_on_clock_network_per_scn
+                                                                       true
+router          packet_sender3/current_state_reg[1]/CP
+                                   pin       pin_on_clock_network_per_scn
+                                                                       true
+router          packet_sender3/current_state_reg[2]/CP
+                                   pin       pin_on_clock_network_per_scn
+                                                                       true
+router          packet_sender3/current_state_reg[0]/CP
                                    pin       pin_on_clock_network_per_scn
                                                                        true
 router          packet_sender3/raddr_in_reg[0]/CP
+                                   pin       pin_on_clock_network_per_scn
+                                                                       true
+router          packet_sender3/raddr_in_reg[1]/CP
+                                   pin       pin_on_clock_network_per_scn
+                                                                       true
+router          packet_sender3/dsz_reg[0]/CP
+                                   pin       pin_on_clock_network_per_scn
+                                                                       true
+router          packet_sender3/raddr_in_reg[2]/CP
                                    pin       pin_on_clock_network_per_scn
                                                                        true
 router          packet_sender3/dsz_reg[1]/CP
@@ -256,22 +280,31 @@ router          packet_sender3/dsz_reg[2]/CP
 router          packet_sender3/raddr_in_reg[3]/CP
                                    pin       pin_on_clock_network_per_scn
                                                                        true
-router          packet_sender3/raddr_in_reg[2]/CP
+router          packet_sender3/rempty_sync_reg/CP
                                    pin       pin_on_clock_network_per_scn
                                                                        true
 router          packet_sender3/rinc_reg/CP
                                    pin       pin_on_clock_network_per_scn
                                                                        true
-router          packet_sender3/current_state_reg[0]/CP
+router          packet_sender2/current_state_reg[1]/CP
                                    pin       pin_on_clock_network_per_scn
                                                                        true
-router          packet_sender3/current_state_reg[2]/CP
+router          packet_sender2/current_state_reg[2]/CP
                                    pin       pin_on_clock_network_per_scn
                                                                        true
-router          packet_sender3/current_state_reg[1]/CP
+router          packet_sender2/current_state_reg[0]/CP
+                                   pin       pin_on_clock_network_per_scn
+                                                                       true
+router          packet_sender2/raddr_in_reg[0]/CP
                                    pin       pin_on_clock_network_per_scn
                                                                        true
 router          packet_sender2/raddr_in_reg[1]/CP
+                                   pin       pin_on_clock_network_per_scn
+                                                                       true
+router          packet_sender2/dsz_reg[0]/CP
+                                   pin       pin_on_clock_network_per_scn
+                                                                       true
+router          packet_sender2/raddr_in_reg[2]/CP
                                    pin       pin_on_clock_network_per_scn
                                                                        true
 router          packet_sender2/dsz_reg[1]/CP
@@ -280,31 +313,34 @@ router          packet_sender2/dsz_reg[1]/CP
 router          packet_sender2/dsz_reg[2]/CP
                                    pin       pin_on_clock_network_per_scn
                                                                        true
-router          packet_sender2/dsz_reg[0]/CP
-                                   pin       pin_on_clock_network_per_scn
-                                                                       true
-router          packet_sender2/raddr_in_reg[0]/CP
-                                   pin       pin_on_clock_network_per_scn
-                                                                       true
-router          packet_sender2/raddr_in_reg[2]/CP
-                                   pin       pin_on_clock_network_per_scn
-                                                                       true
 router          packet_sender2/raddr_in_reg[3]/CP
+                                   pin       pin_on_clock_network_per_scn
+                                                                       true
+router          packet_sender2/rempty_sync_reg/CP
                                    pin       pin_on_clock_network_per_scn
                                                                        true
 router          packet_sender2/rinc_reg/CP
                                    pin       pin_on_clock_network_per_scn
                                                                        true
-router          packet_sender2/current_state_reg[0]/CP
+router          packet_sender1/current_state_reg[1]/CP
                                    pin       pin_on_clock_network_per_scn
                                                                        true
-router          packet_sender2/current_state_reg[2]/CP
+router          packet_sender1/current_state_reg[2]/CP
                                    pin       pin_on_clock_network_per_scn
                                                                        true
-router          packet_sender2/current_state_reg[1]/CP
+router          packet_sender1/current_state_reg[0]/CP
+                                   pin       pin_on_clock_network_per_scn
+                                                                       true
+router          packet_sender1/raddr_in_reg[0]/CP
                                    pin       pin_on_clock_network_per_scn
                                                                        true
 router          packet_sender1/raddr_in_reg[1]/CP
+                                   pin       pin_on_clock_network_per_scn
+                                                                       true
+router          packet_sender1/dsz_reg[0]/CP
+                                   pin       pin_on_clock_network_per_scn
+                                                                       true
+router          packet_sender1/raddr_in_reg[2]/CP
                                    pin       pin_on_clock_network_per_scn
                                                                        true
 router          packet_sender1/dsz_reg[1]/CP
@@ -313,25 +349,13 @@ router          packet_sender1/dsz_reg[1]/CP
 router          packet_sender1/dsz_reg[2]/CP
                                    pin       pin_on_clock_network_per_scn
                                                                        true
-router          packet_sender1/raddr_in_reg[0]/CP
-                                   pin       pin_on_clock_network_per_scn
-                                                                       true
-router          packet_sender1/raddr_in_reg[2]/CP
-                                   pin       pin_on_clock_network_per_scn
-                                                                       true
 router          packet_sender1/raddr_in_reg[3]/CP
                                    pin       pin_on_clock_network_per_scn
                                                                        true
+router          packet_sender1/rempty_sync_reg/CP
+                                   pin       pin_on_clock_network_per_scn
+                                                                       true
 router          packet_sender1/rinc_reg/CP
-                                   pin       pin_on_clock_network_per_scn
-                                                                       true
-router          packet_sender1/current_state_reg[0]/CP
-                                   pin       pin_on_clock_network_per_scn
-                                                                       true
-router          packet_sender1/current_state_reg[2]/CP
-                                   pin       pin_on_clock_network_per_scn
-                                                                       true
-router          packet_sender1/current_state_reg[1]/CP
                                    pin       pin_on_clock_network_per_scn
                                                                        true
 router          fifo3/fs/r2wdff1/rq1_addr_reg[2]/CP
@@ -577,6 +601,15 @@ router          packet_receiver1/winc_port_3_reg/CP
 router          packet_receiver1/winc_port_2_reg/CP
                                    pin       pin_on_clock_network_per_scn
                                                                        true
+router          packet_sender3/U54/Z
+                                   pin       pin_on_clock_network_per_scn
+                                                                       true
+router          packet_sender2/U54/Z
+                                   pin       pin_on_clock_network_per_scn
+                                                                       true
+router          packet_sender1/U54/Z
+                                   pin       pin_on_clock_network_per_scn
+                                                                       true
 router          fifo3/fs/r2wdff1/clk
                                    pin       pin_on_clock_network_per_scn
                                                                        true
@@ -819,6 +852,8 @@ router          packet_sender1/raddr_in_reg[2]
                                    cell      ff_edge_sense             0
 router          packet_sender1/raddr_in_reg[3]
                                    cell      ff_edge_sense             0
+router          packet_sender1/rempty_sync_reg
+                                   cell      ff_edge_sense             0
 router          packet_sender1/rinc_reg
                                    cell      ff_edge_sense             0
 router          packet_sender2/current_state_reg[0]
@@ -841,6 +876,8 @@ router          packet_sender2/raddr_in_reg[2]
                                    cell      ff_edge_sense             0
 router          packet_sender2/raddr_in_reg[3]
                                    cell      ff_edge_sense             0
+router          packet_sender2/rempty_sync_reg
+                                   cell      ff_edge_sense             0
 router          packet_sender2/rinc_reg
                                    cell      ff_edge_sense             0
 router          packet_sender3/current_state_reg[0]
@@ -862,6 +899,8 @@ router          packet_sender3/raddr_in_reg[1]
 router          packet_sender3/raddr_in_reg[2]
                                    cell      ff_edge_sense             0
 router          packet_sender3/raddr_in_reg[3]
+                                   cell      ff_edge_sense             0
+router          packet_sender3/rempty_sync_reg
                                    cell      ff_edge_sense             0
 router          packet_sender3/rinc_reg
                                    cell      ff_edge_sense             0
@@ -3841,8 +3880,6 @@ router          packet_sender1/current_state[2]
                                    net       net_original_name         current_state[2]
 router          packet_sender1/dsz[0]
                                    net       net_original_name         dsz[0]
-router          packet_sender1/dsz[1]
-                                   net       net_original_name         dsz[1]
 router          packet_sender1/dsz[2]
                                    net       net_original_name         dsz[2]
 router          packet_sender1/next_state[0]
@@ -3851,8 +3888,6 @@ router          packet_sender1/next_state[1]
                                    net       net_original_name         next_state[1]
 router          packet_sender1/next_state[2]
                                    net       net_original_name         next_state[2]
-router          packet_sender1/packet_valid
-                                   net       net_original_name         packet_valid
 router          packet_sender1/raddr_in[0]
                                    net       net_original_name         raddr_in[0]
 router          packet_sender1/raddr_in[0]
@@ -3897,8 +3932,12 @@ router          packet_sender1/rdata[7]
                                    net       net_merge_attr            rdata[7]
 router          packet_sender1/rempty
                                    net       net_original_name         rempty
+router          packet_sender1/rempty_sync
+                                   net       net_original_name         rempty_sync
 router          packet_sender1/rinc
                                    net       net_original_name         rinc
+router          packet_sender1/rinc_next
+                                   net       net_original_name         rinc_next
 router          packet_sender1/rst net       net_original_name         rst
 router          packet_sender2/clk net       net_original_name         clk
 router          packet_sender2/current_state[0]
@@ -3909,8 +3948,6 @@ router          packet_sender2/current_state[2]
                                    net       net_original_name         current_state[2]
 router          packet_sender2/dsz[0]
                                    net       net_original_name         dsz[0]
-router          packet_sender2/dsz[1]
-                                   net       net_original_name         dsz[1]
 router          packet_sender2/dsz[2]
                                    net       net_original_name         dsz[2]
 router          packet_sender2/next_state[0]
@@ -3919,8 +3956,6 @@ router          packet_sender2/next_state[1]
                                    net       net_original_name         next_state[1]
 router          packet_sender2/next_state[2]
                                    net       net_original_name         next_state[2]
-router          packet_sender2/packet_valid
-                                   net       net_original_name         packet_valid
 router          packet_sender2/raddr_in[0]
                                    net       net_original_name         raddr_in[0]
 router          packet_sender2/raddr_in[0]
@@ -3965,8 +4000,12 @@ router          packet_sender2/rdata[7]
                                    net       net_merge_attr            rdata[7]
 router          packet_sender2/rempty
                                    net       net_original_name         rempty
+router          packet_sender2/rempty_sync
+                                   net       net_original_name         rempty_sync
 router          packet_sender2/rinc
                                    net       net_original_name         rinc
+router          packet_sender2/rinc_next
+                                   net       net_original_name         rinc_next
 router          packet_sender2/rst net       net_original_name         rst
 router          packet_sender3/clk net       net_original_name         clk
 router          packet_sender3/current_state[0]
@@ -3977,8 +4016,6 @@ router          packet_sender3/current_state[2]
                                    net       net_original_name         current_state[2]
 router          packet_sender3/dsz[0]
                                    net       net_original_name         dsz[0]
-router          packet_sender3/dsz[1]
-                                   net       net_original_name         dsz[1]
 router          packet_sender3/dsz[2]
                                    net       net_original_name         dsz[2]
 router          packet_sender3/next_state[0]
@@ -3987,8 +4024,6 @@ router          packet_sender3/next_state[1]
                                    net       net_original_name         next_state[1]
 router          packet_sender3/next_state[2]
                                    net       net_original_name         next_state[2]
-router          packet_sender3/packet_valid
-                                   net       net_original_name         packet_valid
 router          packet_sender3/raddr_in[0]
                                    net       net_original_name         raddr_in[0]
 router          packet_sender3/raddr_in[0]
@@ -4033,8 +4068,12 @@ router          packet_sender3/rdata[7]
                                    net       net_merge_attr            rdata[7]
 router          packet_sender3/rempty
                                    net       net_original_name         rempty
+router          packet_sender3/rempty_sync
+                                   net       net_original_name         rempty_sync
 router          packet_sender3/rinc
                                    net       net_original_name         rinc
+router          packet_sender3/rinc_next
+                                   net       net_original_name         rinc_next
 router          packet_sender3/rst net       net_original_name         rst
 router          clk1               port      pin_on_clock_network_per_scn
                                                                        true
