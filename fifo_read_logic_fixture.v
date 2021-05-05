@@ -6,7 +6,7 @@
 `define CLK_1     5 // for test ease
 `define PTR_SZ 	  2
 
-module fifo_write_logic_fixture;
+module fifo_read_logic_fixture;
   reg clk1, rst;
 
   reg rinc;

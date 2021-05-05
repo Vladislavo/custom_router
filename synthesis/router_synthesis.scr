@@ -8,8 +8,8 @@ set current_design router
 link
 
 # create clock
-create_clock "clk1" -period 2 -name "clk1"
-create_clock "clk2" -period 5 -name "clk2"
+create_clock "clk1" -period 4 -name "clk1"
+create_clock "clk2" -period 10 -name "clk2"
 set_dont_touch_network "clk1"
 set_dont_touch_network "clk2"
 
@@ -23,8 +23,8 @@ set_input_delay -clock clk1 -min -rise 1 "packet_valid_i"
 set_input_delay -clock clk1 -max -rise 2 "packet_in"
 set_input_delay -clock clk1 -min -rise 1 "packet_in"
 
-set_output_delay -clock clk2 -max -rise 2 "stop_packet_send"
-set_output_delay -clock clk2 -min -rise 1 "stop_packet_send"
+set_output_delay -clock clk1 -max -rise 2 "stop_packet_send"
+set_output_delay -clock clk1 -min -rise 1 "stop_packet_send"
 
 set_output_delay -clock clk2 -max -rise 2 "packet_valid_o1"
 set_output_delay -clock clk2 -min -rise 1 "packet_valid_o1"
