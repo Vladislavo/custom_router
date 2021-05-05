@@ -3,7 +3,7 @@
 Report : Attribute
 Design : router
 Version: P-2019.03-SP2
-Date   : Wed May  5 03:54:18 2021
+Date   : Wed May  5 04:13:38 2021
 ****************************************
 
 Design          Object             Type      Attribute Name            Value
@@ -22,12 +22,12 @@ router          router             design    pads_thru_hier            false
 router          router             design    pads_respect_hier         false
 router          router             design    redundancy_removal        true
 router          router             design    instance_name_suffix      
-router          router             design    compile_tdrs_cpu_time     0.643616
-router          router             design    compile_lib_cpu_time      0.214790
-router          router             design    compile_tot_cpu_time      6.930817
-router          router             design    compile_rbo_cpu_time      3.490974
-router          router             design    compile_abo_cpu_time      1.974243
-router          router             design    compile_tot_wall_time     7.230468
+router          router             design    compile_tdrs_cpu_time     0.628540
+router          router             design    compile_lib_cpu_time      0.205963
+router          router             design    compile_tot_cpu_time      6.744385
+router          router             design    compile_rbo_cpu_time      3.400360
+router          router             design    compile_abo_cpu_time      1.928223
+router          router             design    compile_tot_wall_time     7.043315
 router          router             design    temperature_from_min_lib  0.000000
 router          router             design    temperature_from_max_lib  0.000000
 router          router             design    max_area                  0.000000
