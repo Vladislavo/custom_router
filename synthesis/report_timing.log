@@ -6,14 +6,14 @@ Report : timing
         -max_paths 1
 Design : router
 Version: P-2019.03-SP2
-Date   : Wed May  5 00:04:40 2021
+Date   : Wed May  5 03:54:18 2021
 ****************************************
 
 Operating Conditions: BCCOM   Library: lsi_10k
 Wire Load Model Mode: top
 
-  Startpoint: packet_valid_i
-              (input port clocked by clk1)
+  Startpoint: packet_receiver1/present_state_reg[2]
+              (rising edge-triggered flip-flop clocked by clk1)
   Endpoint: packet_receiver1/present_state_reg[0]
             (rising edge-triggered flip-flop clocked by clk1)
   Path Group: clk1
@@ -23,15 +23,17 @@ Wire Load Model Mode: top
   --------------------------------------------------------------------------
   clock clk1 (rise edge)                                  0.00       0.00
   clock network delay (ideal)                             0.00       0.00
-  input external delay                                    2.00       2.00 r
-  packet_valid_i (in)                                     0.00       2.00 r
-  packet_receiver1/packet_valid_i (packet_receiver)       0.00       2.00 r
-  packet_receiver1/U31/Z (ND4)                            0.52       2.52 f
-  packet_receiver1/U30/Z (AN2)                            0.42       2.94 f
-  packet_receiver1/U29/Z (AO3)                            0.40       3.33 r
-  packet_receiver1/next_state_reg[0]/Q (LD1)              0.53       3.86 r
-  packet_receiver1/present_state_reg[0]/D (FD2)           0.00       3.86 r
-  data arrival time                                                  3.86
+  packet_receiver1/present_state_reg[2]/CP (FD2)          0.00       0.00 r
+  packet_receiver1/present_state_reg[2]/Q (FD2)           0.83       0.83 f
+  packet_receiver1/U33/Z (IVAP)                           0.18       1.01 r
+  packet_receiver1/U37/Z (ND3)                            0.42       1.44 f
+  packet_receiver1/U17/Z (AN2P)                           0.48       1.92 f
+  packet_receiver1/U28/Z (ND3P)                           0.45       2.36 r
+  packet_receiver1/U38/Z (IVA)                            0.16       2.52 f
+  packet_receiver1/U54/Z (ND2)                            0.32       2.84 r
+  packet_receiver1/U55/Z (ND4)                            0.30       3.14 f
+  packet_receiver1/present_state_reg[0]/D (FD2)           0.00       3.14 f
+  data arrival time                                                  3.14
 
   clock clk1 (rise edge)                                  4.00       4.00
   clock network delay (ideal)                             0.00       4.00
@@ -40,9 +42,9 @@ Wire Load Model Mode: top
   data required time                                                 3.15
   --------------------------------------------------------------------------
   data required time                                                 3.15
-  data arrival time                                                 -3.86
+  data arrival time                                                 -3.14
   --------------------------------------------------------------------------
-  slack (VIOLATED)                                                  -0.71
+  slack (MET)                                                        0.01
 
 
   Startpoint: fifo1/fs/w2rdff1/rq2_addr_reg[2]

@@ -1,6 +1,6 @@
 // packet_sender.v
 // Author: Vladislav Rykov
-// Note: current version of design requires one clock cycle between successive packets.
+// Note: current version of design requires two clock cycle between successive packets.
 
 `define SRC_ID 0
 `define DST_ID 1
@@ -101,25 +101,4 @@ module packet_sender #(parameter UWIDTH = 8, PTR_IN_SZ = 4)
       rempty_sync <= rempty;
     end
   end
-  /*
-  always @(negedge clk or negedge rst) begin
-    if (!rst) begin
-      dsz = 0;
-      raddr_in = 0;
-      rinc = 0;
-      rempty_sync <= 1;
-      //rinc_next = 0;
-    end else begin
-      if (current_state != IDLE) raddr_in = raddr_in + 1;
-      else if (!rempty) raddr_in = `SIZE;
-      if (current_state == DATA) dsz = dsz - 1;
-      if (current_state == SRC) begin
-        raddr_in = 0;
-        dsz = rdata[(`SIZE_BITS-1):0]-1;
-      end
-      rinc = rinc_next;
-      rempty_sync <= rempty;
-    end
-  end
-  */
 endmodule

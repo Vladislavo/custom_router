@@ -3,7 +3,7 @@
 Report : Attribute
 Design : router
 Version: P-2019.03-SP2
-Date   : Wed May  5 00:04:40 2021
+Date   : Wed May  5 03:54:18 2021
 ****************************************
 
 Design          Object             Type      Attribute Name            Value
@@ -16,18 +16,18 @@ router          router             design    testdb_meth_sig_usage_option
 router          router             design    testdb_meth_sig_usage     106499
 router          router             design    testdb_meth_name          multiplexed_flip_flop
 router          router             design    map_effort_option         3
-router          router             design    redundancy_removal        true
 router          router             design    map                       true
 router          router             design    exact_sequential_map      false
 router          router             design    pads_thru_hier            false
 router          router             design    pads_respect_hier         false
+router          router             design    redundancy_removal        true
 router          router             design    instance_name_suffix      
-router          router             design    compile_tdrs_cpu_time     0.650574
-router          router             design    compile_lib_cpu_time      0.212173
-router          router             design    compile_tot_cpu_time      6.832737
-router          router             design    compile_rbo_cpu_time      3.539557
-router          router             design    compile_abo_cpu_time      1.843872
-router          router             design    compile_tot_wall_time     7.156348
+router          router             design    compile_tdrs_cpu_time     0.643616
+router          router             design    compile_lib_cpu_time      0.214790
+router          router             design    compile_tot_cpu_time      6.930817
+router          router             design    compile_rbo_cpu_time      3.490974
+router          router             design    compile_abo_cpu_time      1.974243
+router          router             design    compile_tot_wall_time     7.230468
 router          router             design    temperature_from_min_lib  0.000000
 router          router             design    temperature_from_max_lib  0.000000
 router          router             design    max_area                  0.000000
@@ -502,6 +502,12 @@ router          fifo1/fwl/waddr_reg[1]/CP
 router          fifo1/fwl/waddr_reg[0]/CP
                                    pin       pin_on_clock_network_per_scn
                                                                        true
+router          packet_receiver1/present_state_reg[0]/CP
+                                   pin       pin_on_clock_network_per_scn
+                                                                       true
+router          packet_receiver1/present_state_reg[2]/CP
+                                   pin       pin_on_clock_network_per_scn
+                                                                       true
 router          packet_receiver1/temp1_reg[0]/CP
                                    pin       pin_on_clock_network_per_scn
                                                                        true
@@ -524,6 +530,39 @@ router          packet_receiver1/temp1_reg[6]/CP
                                    pin       pin_on_clock_network_per_scn
                                                                        true
 router          packet_receiver1/temp1_reg[7]/CP
+                                   pin       pin_on_clock_network_per_scn
+                                                                       true
+router          packet_receiver1/stop_packet_send_reg/CP
+                                   pin       pin_on_clock_network_per_scn
+                                                                       true
+router          packet_receiver1/pv_temp1_reg/CP
+                                   pin       pin_on_clock_network_per_scn
+                                                                       true
+router          packet_receiver1/pv_temp2_reg/CP
+                                   pin       pin_on_clock_network_per_scn
+                                                                       true
+router          packet_receiver1/temp2_reg[7]/CP
+                                   pin       pin_on_clock_network_per_scn
+                                                                       true
+router          packet_receiver1/temp2_reg[0]/CP
+                                   pin       pin_on_clock_network_per_scn
+                                                                       true
+router          packet_receiver1/temp2_reg[1]/CP
+                                   pin       pin_on_clock_network_per_scn
+                                                                       true
+router          packet_receiver1/temp2_reg[2]/CP
+                                   pin       pin_on_clock_network_per_scn
+                                                                       true
+router          packet_receiver1/temp2_reg[6]/CP
+                                   pin       pin_on_clock_network_per_scn
+                                                                       true
+router          packet_receiver1/temp2_reg[3]/CP
+                                   pin       pin_on_clock_network_per_scn
+                                                                       true
+router          packet_receiver1/temp2_reg[4]/CP
+                                   pin       pin_on_clock_network_per_scn
+                                                                       true
+router          packet_receiver1/temp2_reg[5]/CP
                                    pin       pin_on_clock_network_per_scn
                                                                        true
 router          packet_receiver1/temp3_reg[0]/CP
@@ -550,48 +589,6 @@ router          packet_receiver1/temp3_reg[6]/CP
 router          packet_receiver1/temp3_reg[7]/CP
                                    pin       pin_on_clock_network_per_scn
                                                                        true
-router          packet_receiver1/present_state_reg[2]/CP
-                                   pin       pin_on_clock_network_per_scn
-                                                                       true
-router          packet_receiver1/present_state_reg[0]/CP
-                                   pin       pin_on_clock_network_per_scn
-                                                                       true
-router          packet_receiver1/present_state_reg[1]/CP
-                                   pin       pin_on_clock_network_per_scn
-                                                                       true
-router          packet_receiver1/stop_packet_send_reg/CP
-                                   pin       pin_on_clock_network_per_scn
-                                                                       true
-router          packet_receiver1/temp2_reg[7]/CP
-                                   pin       pin_on_clock_network_per_scn
-                                                                       true
-router          packet_receiver1/temp2_reg[0]/CP
-                                   pin       pin_on_clock_network_per_scn
-                                                                       true
-router          packet_receiver1/temp2_reg[1]/CP
-                                   pin       pin_on_clock_network_per_scn
-                                                                       true
-router          packet_receiver1/temp2_reg[6]/CP
-                                   pin       pin_on_clock_network_per_scn
-                                                                       true
-router          packet_receiver1/temp2_reg[2]/CP
-                                   pin       pin_on_clock_network_per_scn
-                                                                       true
-router          packet_receiver1/pv_temp1_reg/CP
-                                   pin       pin_on_clock_network_per_scn
-                                                                       true
-router          packet_receiver1/temp2_reg[3]/CP
-                                   pin       pin_on_clock_network_per_scn
-                                                                       true
-router          packet_receiver1/temp2_reg[4]/CP
-                                   pin       pin_on_clock_network_per_scn
-                                                                       true
-router          packet_receiver1/temp2_reg[5]/CP
-                                   pin       pin_on_clock_network_per_scn
-                                                                       true
-router          packet_receiver1/pv_temp2_reg/CP
-                                   pin       pin_on_clock_network_per_scn
-                                                                       true
 router          packet_receiver1/winc_port_1_reg/CP
                                    pin       pin_on_clock_network_per_scn
                                                                        true
@@ -599,6 +596,9 @@ router          packet_receiver1/winc_port_3_reg/CP
                                    pin       pin_on_clock_network_per_scn
                                                                        true
 router          packet_receiver1/winc_port_2_reg/CP
+                                   pin       pin_on_clock_network_per_scn
+                                                                       true
+router          packet_receiver1/present_state_reg[1]/CP
                                    pin       pin_on_clock_network_per_scn
                                                                        true
 router          packet_sender3/U54/Z
@@ -3687,12 +3687,6 @@ router          fifo3/winc         net       net_original_name         winc
 router          fifo3/write_en     net       net_original_name         write_en
 router          packet_receiver1/clk1
                                    net       net_original_name         clk1
-router          packet_receiver1/next_state[0]
-                                   net       net_original_name         next_state[0]
-router          packet_receiver1/next_state[1]
-                                   net       net_original_name         next_state[1]
-router          packet_receiver1/next_state[2]
-                                   net       net_original_name         next_state[2]
 router          packet_receiver1/packet_valid_i
                                    net       net_original_name         packet_valid_i
 router          packet_receiver1/pdata[0]
@@ -3743,6 +3737,8 @@ router          packet_receiver1/temp1[7]
                                    net       net_original_name         temp1[7]
 router          packet_receiver1/temp2[0]
                                    net       net_original_name         temp2[0]
+router          packet_receiver1/temp2[0]
+                                   net       net_merge_attr            carry[1]
 router          packet_receiver1/temp2[1]
                                    net       net_original_name         temp2[1]
 router          packet_receiver1/temp2[2]
@@ -3865,12 +3861,8 @@ router          packet_receiver1/winc_port_1_next
                                    net       net_original_name         winc_port_1_next
 router          packet_receiver1/winc_port_2
                                    net       net_original_name         winc_port_2
-router          packet_receiver1/winc_port_2_next
-                                   net       net_original_name         winc_port_2_next
 router          packet_receiver1/winc_port_3
                                    net       net_original_name         winc_port_3
-router          packet_receiver1/winc_port_3_next
-                                   net       net_original_name         winc_port_3_next
 router          packet_sender1/clk net       net_original_name         clk
 router          packet_sender1/current_state[0]
                                    net       net_original_name         current_state[0]

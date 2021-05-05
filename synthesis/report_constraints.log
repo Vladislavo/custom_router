@@ -4,19 +4,8 @@ Report : constraint
         -all_violators
 Design : router
 Version: P-2019.03-SP2
-Date   : Wed May  5 00:04:40 2021
+Date   : Wed May  5 03:54:18 2021
 ****************************************
-
-
-   max_delay/setup ('clk1' group)
-
-                             Required        Actual
-   Endpoint                 Path Delay     Path Delay        Slack
-   -----------------------------------------------------------------
-   packet_receiver1/present_state_reg[0]/D
-                                3.15           3.86 r        -0.71  (VIOLATED)
-   packet_receiver1/present_state_reg[1]/D
-                                3.15           3.38 r        -0.23  (VIOLATED)
 
 
    max_area
@@ -24,7 +13,7 @@ Date   : Wed May  5 00:04:40 2021
                              Required        Actual
    Design                      Area           Area           Slack
    -----------------------------------------------------------------
-   router                       0.00        9366.00       -9366.00  (VIOLATED)
+   router                       0.00        9393.00       -9393.00  (VIOLATED)
 
 
 1

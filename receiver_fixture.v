@@ -23,9 +23,9 @@
        rst = 0; 
 // packet 1   ............trusted packet to dest-1...........
        #`CLK_1 rst = 1; packet_valid_i = 1;wfull_port_1 = 0; wfull_port_2 = 0; wfull_port_3 = 0;
-                   pdata = 8'b00000001;              //Src_id
-       #(2*`CLK_1) pdata = 8'b00000110;              //Dest_id
-       #(2*`CLK_1) pdata = 8'b00000010;              //SIZE
+                   pdata = 1;              //Src_id
+       #(2*`CLK_1) pdata = 6;              //Dest_id
+       #(2*`CLK_1) pdata = 2;              //SIZE
 
        #(2*`CLK_1) pdata = 171;              //DATA
        #(2*`CLK_1) pdata = 172;
@@ -36,14 +36,14 @@
     // #(`CLK_1) rst = 0;
        #(2*`CLK_1) packet_valid_i = 0;
        #(2*`CLK_1) rst = 1; packet_valid_i = 1; wfull_port_1 = 0; wfull_port_2 = 0; wfull_port_3 = 0;
-                   pdata = 8'b00000001;              //Src_id
+                   pdata = 1;              //Src_id
        #(2*`CLK_1) pdata = 150;              //Dest_id
-       #(2*`CLK_1) pdata = 8'b00000100;              //SIZE
+       #(2*`CLK_1) pdata = 4;              //SIZE
 
-       #(2*`CLK_1) pdata = 8'b00100111;              //DATA
-       #(2*`CLK_1) pdata = 8'b10111000;
-       #(2*`CLK_1) pdata = 8'b00101101;
-       #(2*`CLK_1) pdata = 8'b00000110;
+       #(2*`CLK_1) pdata = 111;              //DATA
+       #(2*`CLK_1) pdata = 122;
+       #(2*`CLK_1) pdata = 133;
+       #(2*`CLK_1) pdata = 144;
 
        #(2*`CLK_1) pdata = 255;              //CRC
 //        //#(4*`CLK_1)$display("packet2 end");
@@ -92,5 +92,5 @@
   end
   
   initial
-    $monitor("Time=%3d,ps=%1d,ns=%1d,clk=%b,wf1=%b,wf2=%b,wf3=%b,pd=%3d,t1=%3d,k=%d,x=%2d,t2=%3d,wd_p1=%3d,wd_p2=%3d,wd_p3=%3d,wincp1=%d,wincp2=%d,wincp3=%d,tst=%b,wa1=%d,wa2=%d,wa3=%d, dest_p=%d",$time,rf.present_state,rf.next_state,clk1,wfull_port_1,wfull_port_2,wfull_port_3,pdata,rf.temp1,rf.k,rf.x,rf.temp2,wdata_port_1,wdata_port_2,wdata_port_3,winc_port_1,winc_port_2,winc_port_3,rf.trusted,waddr_in_port_1,waddr_in_port_2,waddr_in_port_3,rf.dest_p);
+    $monitor("Time=%3d,ps=%1d,ns=%1d,clk=%b,wf1=%b,wf2=%b,wf3=%b,pd=%3d,t1=%3d,k=%d,x=%2d,t2=%3d,wd_p1=%3d,wd_p2=%3d,wd_p3=%3d,wincp1=%d,wincp2=%d,wincp3=%d,tst=%b,wa1=%d,wa2=%d,wa3=%d, dest_p=%d, pvi = %d",$time,rf.present_state,rf.next_state,clk1,wfull_port_1,wfull_port_2,wfull_port_3,pdata,rf.temp1,rf.k,rf.x,rf.temp2,wdata_port_1,wdata_port_2,wdata_port_3,winc_port_1,winc_port_2,winc_port_3,rf.trusted,waddr_in_port_1,waddr_in_port_2,waddr_in_port_3,rf.dest_p, packet_valid_i);
 endmodule
