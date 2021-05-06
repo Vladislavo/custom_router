@@ -3,18 +3,14 @@
 Report : area
 Design : router
 Version: P-2019.03-SP2
-Date   : Wed May  5 04:13:38 2021
+Date   : Wed May  5 17:34:04 2021
 ****************************************
 
 Information: Updating design information... (UID-85)
 Information: Timing loop detected. (OPT-150)
-	fifo1/frl/U10/B fifo1/frl/U10/Z fifo1/frl/U4/B fifo1/frl/U4/Z fifo1/frl/raddr_aux_reg[2]/G fifo1/frl/raddr_aux_reg[2]/Q fifo1/frl/U6/B fifo1/frl/U6/Z fifo1/frl/U17/A fifo1/frl/U17/Z 
+	fifo1/frl/U7/B fifo1/frl/U7/Z fifo1/frl/U16/B fifo1/frl/U16/Z fifo1/frl/raddr_aux_reg[0]/G fifo1/frl/raddr_aux_reg[0]/Q fifo1/frl/U6/A fifo1/frl/U6/Z fifo1/frl/U3/B fifo1/frl/U3/Z fifo1/frl/U18/A fifo1/frl/U18/Z 
 Information: Timing loop detected. (OPT-150)
-	fifo2/frl/U10/B fifo2/frl/U10/Z fifo2/frl/U4/B fifo2/frl/U4/Z fifo2/frl/raddr_aux_reg[2]/G fifo2/frl/raddr_aux_reg[2]/Q fifo2/frl/U6/B fifo2/frl/U6/Z fifo2/frl/U17/A fifo2/frl/U17/Z 
-Warning: Disabling timing arc between pins 'G' and 'Q' on cell 'fifo1/frl/raddr_aux_reg[2]'
-         to break a timing loop. (OPT-314)
-Warning: Disabling timing arc between pins 'G' and 'QN' on cell 'fifo1/frl/raddr_aux_reg[2]'
-         to break a timing loop. (OPT-314)
+	fifo2/frl/U7/B fifo2/frl/U7/Z fifo2/frl/U16/B fifo2/frl/U16/Z fifo2/frl/raddr_aux_reg[0]/G fifo2/frl/raddr_aux_reg[0]/Q fifo2/frl/U6/A fifo2/frl/U6/Z fifo2/frl/U3/B fifo2/frl/U3/Z fifo2/frl/U18/A fifo2/frl/U18/Z 
 Warning: Disabling timing arc between pins 'G' and 'Q' on cell 'fifo1/frl/raddr_aux_reg[0]'
          to break a timing loop. (OPT-314)
 Warning: Disabling timing arc between pins 'G' and 'QN' on cell 'fifo1/frl/raddr_aux_reg[0]'
@@ -23,9 +19,9 @@ Warning: Disabling timing arc between pins 'G' and 'Q' on cell 'fifo1/frl/raddr_
          to break a timing loop. (OPT-314)
 Warning: Disabling timing arc between pins 'G' and 'QN' on cell 'fifo1/frl/raddr_aux_reg[1]'
          to break a timing loop. (OPT-314)
-Warning: Disabling timing arc between pins 'G' and 'Q' on cell 'fifo2/frl/raddr_aux_reg[2]'
+Warning: Disabling timing arc between pins 'G' and 'Q' on cell 'fifo1/frl/raddr_aux_reg[2]'
          to break a timing loop. (OPT-314)
-Warning: Disabling timing arc between pins 'G' and 'QN' on cell 'fifo2/frl/raddr_aux_reg[2]'
+Warning: Disabling timing arc between pins 'G' and 'QN' on cell 'fifo1/frl/raddr_aux_reg[2]'
          to break a timing loop. (OPT-314)
 Warning: Disabling timing arc between pins 'G' and 'Q' on cell 'fifo2/frl/raddr_aux_reg[0]'
          to break a timing loop. (OPT-314)
@@ -35,9 +31,9 @@ Warning: Disabling timing arc between pins 'G' and 'Q' on cell 'fifo2/frl/raddr_
          to break a timing loop. (OPT-314)
 Warning: Disabling timing arc between pins 'G' and 'QN' on cell 'fifo2/frl/raddr_aux_reg[1]'
          to break a timing loop. (OPT-314)
-Warning: Disabling timing arc between pins 'G' and 'Q' on cell 'fifo3/frl/raddr_aux_reg[2]'
+Warning: Disabling timing arc between pins 'G' and 'Q' on cell 'fifo2/frl/raddr_aux_reg[2]'
          to break a timing loop. (OPT-314)
-Warning: Disabling timing arc between pins 'G' and 'QN' on cell 'fifo3/frl/raddr_aux_reg[2]'
+Warning: Disabling timing arc between pins 'G' and 'QN' on cell 'fifo2/frl/raddr_aux_reg[2]'
          to break a timing loop. (OPT-314)
 Warning: Disabling timing arc between pins 'G' and 'Q' on cell 'fifo3/frl/raddr_aux_reg[0]'
          to break a timing loop. (OPT-314)
@@ -47,17 +43,13 @@ Warning: Disabling timing arc between pins 'G' and 'Q' on cell 'fifo3/frl/raddr_
          to break a timing loop. (OPT-314)
 Warning: Disabling timing arc between pins 'G' and 'QN' on cell 'fifo3/frl/raddr_aux_reg[1]'
          to break a timing loop. (OPT-314)
-Warning: Disabling timing arc between pins 'G' and 'QN' on cell 'fifo2/fwl/waddr_aux_reg[2]'
+Warning: Disabling timing arc between pins 'G' and 'Q' on cell 'fifo3/frl/raddr_aux_reg[2]'
          to break a timing loop. (OPT-314)
-Warning: Disabling timing arc between pins 'G' and 'Q' on cell 'fifo2/fwl/waddr_aux_reg[2]'
+Warning: Disabling timing arc between pins 'G' and 'QN' on cell 'fifo3/frl/raddr_aux_reg[2]'
          to break a timing loop. (OPT-314)
-Warning: Disabling timing arc between pins 'G' and 'QN' on cell 'fifo1/fwl/waddr_aux_reg[2]'
+Warning: Disabling timing arc between pins 'G' and 'QN' on cell 'fifo3/fwl/waddr_aux_reg[1]'
          to break a timing loop. (OPT-314)
-Warning: Disabling timing arc between pins 'G' and 'Q' on cell 'fifo1/fwl/waddr_aux_reg[2]'
-         to break a timing loop. (OPT-314)
-Warning: Disabling timing arc between pins 'G' and 'QN' on cell 'fifo3/fwl/waddr_aux_reg[2]'
-         to break a timing loop. (OPT-314)
-Warning: Disabling timing arc between pins 'G' and 'Q' on cell 'fifo3/fwl/waddr_aux_reg[2]'
+Warning: Disabling timing arc between pins 'G' and 'Q' on cell 'fifo3/fwl/waddr_aux_reg[1]'
          to break a timing loop. (OPT-314)
 Warning: Disabling timing arc between pins 'G' and 'QN' on cell 'fifo2/fwl/waddr_aux_reg[1]'
          to break a timing loop. (OPT-314)
@@ -67,9 +59,21 @@ Warning: Disabling timing arc between pins 'G' and 'QN' on cell 'fifo1/fwl/waddr
          to break a timing loop. (OPT-314)
 Warning: Disabling timing arc between pins 'G' and 'Q' on cell 'fifo1/fwl/waddr_aux_reg[1]'
          to break a timing loop. (OPT-314)
-Warning: Disabling timing arc between pins 'G' and 'QN' on cell 'fifo3/fwl/waddr_aux_reg[1]'
+Warning: Disabling timing arc between pins 'G' and 'Q' on cell 'fifo3/fwl/waddr_aux_reg[2]'
          to break a timing loop. (OPT-314)
-Warning: Disabling timing arc between pins 'G' and 'Q' on cell 'fifo3/fwl/waddr_aux_reg[1]'
+Warning: Disabling timing arc between pins 'G' and 'QN' on cell 'fifo3/fwl/waddr_aux_reg[2]'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'G' and 'Q' on cell 'fifo2/fwl/waddr_aux_reg[2]'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'G' and 'QN' on cell 'fifo2/fwl/waddr_aux_reg[2]'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'G' and 'Q' on cell 'fifo1/fwl/waddr_aux_reg[2]'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'G' and 'QN' on cell 'fifo1/fwl/waddr_aux_reg[2]'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'G' and 'Q' on cell 'fifo3/fwl/waddr_aux_reg[0]'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'G' and 'QN' on cell 'fifo3/fwl/waddr_aux_reg[0]'
          to break a timing loop. (OPT-314)
 Warning: Disabling timing arc between pins 'G' and 'Q' on cell 'fifo2/fwl/waddr_aux_reg[0]'
          to break a timing loop. (OPT-314)
@@ -79,29 +83,25 @@ Warning: Disabling timing arc between pins 'G' and 'Q' on cell 'fifo1/fwl/waddr_
          to break a timing loop. (OPT-314)
 Warning: Disabling timing arc between pins 'G' and 'QN' on cell 'fifo1/fwl/waddr_aux_reg[0]'
          to break a timing loop. (OPT-314)
-Warning: Disabling timing arc between pins 'G' and 'Q' on cell 'fifo3/fwl/waddr_aux_reg[0]'
-         to break a timing loop. (OPT-314)
-Warning: Disabling timing arc between pins 'G' and 'QN' on cell 'fifo3/fwl/waddr_aux_reg[0]'
-         to break a timing loop. (OPT-314)
 Library(s) Used:
 
     lsi_10k (File: /usr/pkg/syn/libraries/syn/lsi_10k.db)
 
 Number of ports:                          541
-Number of nets:                          3470
-Number of cells:                         2940
-Number of combinational cells:           1652
+Number of nets:                          3281
+Number of cells:                         2748
+Number of combinational cells:           1460
 Number of sequential cells:              1257
 Number of macros/black boxes:               0
-Number of buf/inv:                        102
+Number of buf/inv:                        115
 Number of references:                       7
 
-Combinational area:               2648.000000
-Buf/Inv area:                      103.000000
-Noncombinational area:            6745.000000
+Combinational area:               2505.000000
+Buf/Inv area:                      115.000000
+Noncombinational area:            6747.000000
 Macro/Black Box area:                0.000000
 Net Interconnect area:      undefined  (No wire load specified)
 
-Total cell area:                  9393.000000
+Total cell area:                  9252.000000
 Total area:                 undefined
 1
