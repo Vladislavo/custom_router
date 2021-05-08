@@ -43,8 +43,7 @@ module packet_sender #(parameter UWIDTH = 8, PTR_IN_SZ = 4)
     case (current_state)
       IDLE: begin
         packet_valid = 0;
-        if (!rempty_sync) begin
-          //raddr_in = `SIZE;
+        if (!rempty) begin
           next_state = SRC;
         end else begin
           next_state = IDLE;
@@ -52,8 +51,6 @@ module packet_sender #(parameter UWIDTH = 8, PTR_IN_SZ = 4)
       end
       SRC: begin
         packet_valid = 0;
-        //dsz = rdata[(`SIZE_BITS-1):0]-1;
-        //raddr_in = `SRC_ID;
         next_state = DST;
       end
       DST: begin
@@ -70,8 +67,6 @@ module packet_sender #(parameter UWIDTH = 8, PTR_IN_SZ = 4)
         end
       end
       CRC: begin
-        //rinc_next = 1;
-        //next_state = IDLE;
         next_state = sCRC;
       end
       sCRC: begin
